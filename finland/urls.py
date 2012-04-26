@@ -1,12 +1,14 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'finland.views.home', name='home'),
-    # url(r'^finland/', include('finland.foo.urls')),
+  (r'^', include('charts.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+  url(r'^admin/', include(admin.site.urls)),
 )
+
+urlpatterns += staticfiles_urlpatterns()

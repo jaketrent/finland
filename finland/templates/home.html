@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>The Spirit of Finland</title>
+  <script src="{{ STATIC_URL }}js/vendor/require-jquery.js" data-main="{{ STATIC_URL }}js/main"></script>
+</head>
+<body>
+  <section id="header">
+    <header>
+      <h1><span>The Spirit of</span> Finland</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Artists</a></li>
+        <li><a href="#">Message</a></li>
+      </ul>
+    </nav>
+  </section>
+  <section id="main">
+    <div class="pg pg-songs">
+      <ul>
+        {% for s in songs %}
+          <li>
+            <header>
+              <a href="#">
+                <img src="{{ s.art }}" />
+              </a>
+              <h2><a href="#">{{ s.title }}</a></h2>
+              <p>{{ s.byline }} / <a href="#">{{ s.artist.name }}</a></p>
+            </header>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+</body>
+</html>
