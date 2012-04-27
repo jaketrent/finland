@@ -127,6 +127,7 @@ INSTALLED_APPS = (
   'gunicorn',
   'charts',
   'taggit',
+  'tastypie',
 
 )
 
