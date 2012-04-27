@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>The Spirit of Finland</title>
+  <script src="{{ STATIC_URL }}js/vendor/require-jquery.js" data-main="{{ STATIC_URL }}js/main"></script>
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
+</head>
+<body>
+  <section class="lh full-height" id="header">
+    <header>
+      <h1><span>The Spirit of</span> Finland</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Artists</a></li>
+        <li><a href="#">Message</a></li>
+      </ul>
+    </nav>
+  </section>
+  <section class="horz-stripe">&nbsp;</section>
+  <section class="vert-stripe full-height">&nbsp;</section>
+  <section class="rh full-height" id="main">
+    {% block main %}{% endblock %}
+  </section>
+</body>
+</html>

@@ -14,7 +14,7 @@ require(['require', 'webstack'], function (require) {
   }
   require(['charts/Router'], function (ChartsRouter) {
     new ChartsRouter();
-    Backbone.history.start();
+    Backbone.history.start({ pushState: true });
   });
 
   function adjustHeight() {
