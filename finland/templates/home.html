@@ -6,11 +6,11 @@
     {% for s in songs %}
     <li class="song">
       <header>
-        <a href="#" class="album">
+        <a href="{% url song s.title_slug %}" class="album">
           <img src="{{ s.art }}" />
         </a>
         <div class="info">
-          <h2><a href="#">{{ s.title }}</a></h2>
+          <h2><a href="{% url song s.title_slug %}">{{ s.title }}</a></h2>
           <p>{{ s.byline }} / <a href="#">{{ s.artist.name }}</a></p>
         </div>
       </header>
