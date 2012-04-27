@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>The Spirit of Finland</title>
   <script src="{{ STATIC_URL }}js/vendor/require-jquery.js" data-main="{{ STATIC_URL }}js/main"></script>
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
 </head>
 <body>
-  <section id="header">
+  <section class="lh full-height" id="header">
     <header>
       <h1><span>The Spirit of</span> Finland</h1>
     </header>
@@ -18,7 +19,9 @@
       </ul>
     </nav>
   </section>
-  <section id="main">
+  <section class="horz-stripe">&nbsp;</section>
+  <section class="vert-stripe full-height">&nbsp;</section>
+  <section class="rh full-height" id="main">
     <div class="pg pg-songs">
       <ul>
         {% for s in songs %}

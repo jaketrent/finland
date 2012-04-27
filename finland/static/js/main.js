@@ -16,4 +16,11 @@ require(['require', 'webstack'], function (require) {
     new ChartsRouter();
     Backbone.history.start();
   });
+
+  function adjustHeight() {
+    $('.full-height').height($(document).height());
+  }
+  $(window).resize(adjustHeight);
+  adjustHeight();
+
 });
