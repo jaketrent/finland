@@ -1,3 +1,8 @@
+@import url('variables.less');
+@import url('mixins.less');
+@import url('sprites.less');
+@import url('buttons.less');
+
 @blue: #3060c2;
 
 body {
@@ -37,46 +42,46 @@ a {
 .horz-stripe {
   height: 100px;
   background: @blue;
-  position: absolute;
-  top: 250px;
   width: 100%;
-  z-index: 1;
 }
 .rh {
   float: left;
   padding: 0;
-  margin-top: -19px;
-  margin-left: 5%;
   max-width: 960px;
-  padding-top: 400px;
+  padding-top: 250px;
 }
 
 #header {
-  padding: 20px 0 0 5%;
   header {
-    font-size: 2rem;
-    span {
-      font-size: 1rem;
-      display: block;
-      margin-bottom: -5px;
-    }
-  }
-  nav ul {
-    overflow: auto;
-    li {
-      float: left;
-      margin-right: 3px;
-      &:after {
-        content: " | ";
+    height: 175px;
+    padding-left: 40px;
+    h1 {
+      font-size: 3rem;
+      margin: 75px 0 0 0;
+      span {
+        font-size: 1rem;
+        display: block;
+        margin-bottom: -5px;
       }
-      &:last-child:after {
-        content: "";
+    }
+    nav ul {
+      overflow: auto;
+      li {
+        float: left;
+        margin-right: 3px;
+        &:after {
+          content: " | ";
+        }
+        &:last-child:after {
+          content: "";
+        }
       }
     }
   }
 }
 
 .song {
+  margin: 40px 0 0 40px;
   header {
     overflow: auto;
   }
@@ -97,14 +102,18 @@ a {
 
 .pg-song {
   .song {
+    margin: -100px 0 0 40px;
     header {
       color: #fff;
-      position: absolute;
-      top: 250px;
-      left: 40%;
-      z-index: 2;
       a {
         color: #fff;
+      }
+    }
+    .ctrls {
+      overflow: auto;
+      li {
+        float: left;
+        margin-right: 15px;
       }
     }
   }

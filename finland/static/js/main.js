@@ -21,6 +21,7 @@ require(['require', 'webstack'], function (require) {
     $('.full-height').each(function () {
       $(this).css('height', $(window).height() - $(this).css('padding-top').replace('px', ''));
     });
+    $('.rh').css('width', $(window).width() - $('.lh').width() - $('.vert-stripe').width());
   }
   $(window).resize(adjustHeight);
   adjustHeight();

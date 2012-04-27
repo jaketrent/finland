@@ -13,10 +13,13 @@
       </div>
     </header>
     <p>
-      {{ song.file }}
+      <ul class="ctrls">
+        <li><a href="{{ song.file }}" class="btn btn-primary"><i class="icon-play icon-white"></i> Play</a></li>
+        <li><a href="{{ song.file }}" class="btn btn-primary"><i class="icon-download-alt icon-white"></i> Download</a></li>
+      </ul>
     </p>
     <p>
-      {{ song.desc }}
+      {{ song.desc|linebreaks }}
     </p>
   </article>
 </div>
