@@ -3,11 +3,7 @@ define(['charts/Songs', 'tmpl!charts/tmpl/songs'], function (Songs, songsTmpl) {
     el: '#main',
     initialize: function () {
 //      if (this.$el.find('.pg-songs').size() === 0) {
-        this.collection.on('reset', this.render, this);
-        this.collection.on('error', function () {
-          alert('error');
-        });
-        this.collection.fetch();
+      this.render();
 //      }
     },
     render: function () {
