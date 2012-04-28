@@ -34,7 +34,13 @@ define(['charts/Songs', 'charts/Artists'], function (Songs, Artists) {
             }).toJSON()
           });
         });
-        console.log(this.songs.toJSON());
+        _(this.artists.models).each(function (artist) {
+          artist.set({
+            songs: _(self.songs.models).find(function (song) {
+              return _.include(artist.get('song_uris'), song.get('resource_uri'))
+            }).toJSON()
+          });
+        });
       },
       getSongs: function () {
         return this.songs;
