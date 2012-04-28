@@ -12,9 +12,14 @@ require(['require', 'webstack'], function (require) {
       /*for old browsers*/
     });
   }
-  require(['charts/Router'], function (ChartsRouter) {
-    new ChartsRouter();
-    Backbone.history.start({ pushState: true });
+  require(['charts/DataLoader', 'charts/Router'], function (DataLoader, ChartsRouter) {
+    var dataLoader = new DataLoader();
+    dataLoader.load(function () {
+      new ChartsRouter({
+        dataLoader: dataLoader
+      });
+      Backbone.history.start({ pushState: true });
+    });
   });
 
   function adjustHeight() {

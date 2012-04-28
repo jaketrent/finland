@@ -4,9 +4,9 @@ from django.template import RequestContext
 
 from charts.models import Song
 
-def home(request):
+def songs(request):
   songs = Song.objects.all().order_by('-date_created')
-  return render_to_response("home.html", locals(),
+  return render_to_response("songs.html", locals(),
     context_instance=RequestContext(request))
 
 def song(request, title_slug):

@@ -9,10 +9,10 @@
 <body>
   <section class="lh full-height" id="header">
     <header>
-      <h1><a href="{% url home %}"><span>The Spirit of</span> Finland</a></h1>
+      <h1><a href="{% url songs %}"><span>The Spirit of</span> Finland</a></h1>
       <nav>
         <ul>
-          <li><a href="{% url home %}">Music</a></li>
+          <li><a href="{% url songs %}">Music</a></li>
           <li><a href="#">Artists</a></li>
           <li><a href="#">Message</a></li>
         </ul>
@@ -22,7 +22,6 @@
   </section>
   <section class="vert-stripe full-height">&nbsp;</section>
   <section class="rh full-height" id="main">
-    <section class="horz-stripe">&nbsp;</section>
     {% block main %}{% endblock %}
   </section>
 </body>

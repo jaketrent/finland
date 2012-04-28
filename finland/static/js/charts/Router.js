@@ -12,14 +12,17 @@ define(
       '': 'home',
       'song/:title_slug/': 'song'
     },
-    initialize: function () {
-      viewSwitcher = new ViewSwitcher();
+    initialize: function (options) {
+      this.dataLoader = options.dataLoader;
+      this.viewSwitcher = new ViewSwitcher();
     },
     home: function () {
-      viewSwitcher.switchView(new SongsView());
+      this.viewSwitcher.switchView(new SongsView({
+        collection: this.dataLoader.getSongs()
+      }));
     },
     song: function () {
-      viewSwitcher.switchView(new SongView());
+      this.viewSwitcher.switchView(new SongView());
     }
   })
 });
