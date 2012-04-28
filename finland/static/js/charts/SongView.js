@@ -1,4 +1,4 @@
-define(['charts/Songs'], function (Songs) {
+define(['charts/Songs', 'tmpl!charts/tmpl/song'], function (Songs, songTmpl) {
   return Backbone.View.extend({
     el: '#main',
     events: {
@@ -6,15 +6,11 @@ define(['charts/Songs'], function (Songs) {
     },
     initialize: function () {
       if (this.$el.find('.pg-song').size() === 0) {
-        this.collection = new Songs();
-        this.collection.on('reset', this.render, this);
-        this.collection.on('error', function () {
-          alert('error');
-        });
+        this.render();
       }
     },
     render: function () {
-      this.$el.html('homeliness');
+      this.$el.html(songTmpl(this.model.toJSON()));
     },
     play: function (evt) {
       var $playBtn = $(evt.currentTarget);
@@ -23,8 +19,8 @@ define(['charts/Songs'], function (Songs) {
     },
     onClose: function () {
       this.off();
-      this.collection.off();
-      this.unDelegateEvents();
+      this.model.off();
+      this.undelegateEvents();
     }
   });
 });

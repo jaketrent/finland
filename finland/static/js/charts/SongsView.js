@@ -12,7 +12,7 @@ define(['charts/Songs', 'tmpl!charts/tmpl/songs'], function (Songs, songsTmpl) {
     onClose: function () {
       this.off();
       this.collection.off();
-      this.unDelegateEvents();
+      this.undelegateEvents();
     }
   });
 });

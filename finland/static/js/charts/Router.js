@@ -1,9 +1,11 @@
 define(
   [ 'ViewSwitcher'
+  , 'LinkHandler'
   , 'charts/SongsView'
   , 'charts/SongView'
   ], function
   ( ViewSwitcher
+  , LinkHandler
   , SongsView
   , SongView
   ) {
@@ -14,6 +16,9 @@ define(
     },
     initialize: function (options) {
       this.dataLoader = options.dataLoader;
+      this.linkHandler = new LinkHandler({
+        router: this
+      });
       this.viewSwitcher = new ViewSwitcher();
     },
     home: function () {
@@ -21,8 +26,10 @@ define(
         collection: this.dataLoader.getSongs()
       }));
     },
-    song: function () {
-      this.viewSwitcher.switchView(new SongView());
+    song: function (titleSlug) {
+      this.viewSwitcher.switchView(new SongView({
+        model: this.dataLoader.getSong(titleSlug)
+      }));
     }
   })
 });

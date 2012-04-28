@@ -41,8 +41,18 @@ define(['charts/Songs', 'charts/Artists'], function (Songs, Artists) {
       getSongs: function () {
         return this.songs;
       },
+      getSong: function (titleSlug) {
+        return _(this.songs.models).find(function (song) {
+          return song.get('title_slug') === titleSlug;
+        });
+      },
       getArtists: function () {
         return this.artists;
+      },
+      getArtist: function (nameSlug) {
+        return _(this.artists.models).find(function (artist) {
+          return artist.get('name_slug') === nameSlug;
+        });
       }
     }
   };
