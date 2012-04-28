@@ -5,15 +5,11 @@ define(['charts/Songs', 'charts/Artists'], function (Songs, Artists) {
         _.bindAll(this, 'checkDataLoaded');
         this.done = done;
         this.songs = new Songs();
-//        this.songs.on('reset', this.checkDataLoaded, this);
-//        this.songs.on('error', function () { alert('error songs'); });
         this.songs.fetch({
           success: this.checkDataLoaded
         });
 
         this.artists = new Artists();
-//        this.artists.on('reset', this.checkDataLoaded, this);
-//        this.artists.on('error', function () { alert('error artists'); });
         this.artists.fetch({
           success: this.checkDataLoaded
         });
