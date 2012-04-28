@@ -21,8 +21,20 @@ define(['charts/Songs', 'charts/Artists'], function (Songs, Artists) {
       checkDataLoaded: function () {
         if (this.songs.length > 0
           && this.artists.length > 0) {
+          this.combineData();
           this.done();
         }
+      },
+      combineData: function () {
+        var self = this;
+        _(this.songs.models).each(function (song) {
+          song.set({
+            artist: _(self.artists.models).find(function (artist) {
+              return artist.get('resource_uri') === song.get('artist_uri');
+            }).toJSON()
+          });
+        });
+        console.log(this.songs.toJSON());
       },
       getSongs: function () {
         return this.songs;

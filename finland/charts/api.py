@@ -5,7 +5,7 @@ from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from charts.models import Song, Artist
 
 class ArtistResource(ModelResource):
-  songs = fields.ToManyField('charts.api.SongResource', 'song_set', related_name='artist')
+  song_uris = fields.ToManyField('charts.api.SongResource', 'song_set', related_name='artist')
 
   class Meta:
     queryset = Artist.objects.all()
@@ -18,7 +18,7 @@ class ArtistResource(ModelResource):
 
 
 class SongResource(ModelResource):
-  artist = fields.ToOneField(ArtistResource, 'artist')
+  artist_uri = fields.ToOneField(ArtistResource, 'artist')
 
   class Meta:
     queryset = Song.objects.all()
