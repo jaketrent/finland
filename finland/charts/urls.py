@@ -1,9 +1,10 @@
 from django.conf.urls.defaults import patterns, url, include
 from tastypie.api import Api
-from charts.api import SongResource
+from charts.api import SongResource, ArtistResource
 from charts.views import *
 
 v1_api = Api(api_name='v1')
+v1_api.register(ArtistResource())
 v1_api.register(SongResource())
 
 urlpatterns = patterns('',
