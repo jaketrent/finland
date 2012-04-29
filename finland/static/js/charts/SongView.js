@@ -5,7 +5,20 @@ define(['charts/Songs', 'tmpl!charts/tmpl/song'], function (Songs, songTmpl) {
       'click .play': 'play'
     },
     initialize: function () {
-      if (this.$el.find('.pg-song').size() === 0) {
+      var self = this;
+      if (this.$el.find('.pg-songs').size() > 0) {
+        var $song = $('.song[data-id=' + this.model.get('id') + ']');
+        $song.css({
+          position: 'absolute',
+          top: $song.position().top,
+          left: 0
+        }).animate({
+          top: 210,
+          color: '#fff'
+        }, function () {
+          self.render();
+        });
+      } else if (this.$el.find('.pg-song').size() === 0) {
         this.render();
       }
     },

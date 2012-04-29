@@ -5,7 +5,7 @@
 <div class="pg pg-songs">
   <ul>
     {% for s in songs %}
-    <li class="song">
+    <li class="song" data-id="{{ song.id }}">
       <header>
         <a href="{% url song s.title_slug %}" class="album">
           <img src="{{ s.art }}" />
