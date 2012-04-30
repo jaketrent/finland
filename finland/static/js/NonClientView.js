@@ -12,7 +12,9 @@ define(function () {
         type: 'GET',
         dataType: 'html',
         success: function (data, textStatus, jqXHR) {
-          self.render($(data).find('#main').html());
+          var all = $('<div></div>');
+          all.html(data);
+          self.render(all.find('#main').html());
         },
         error: function (a, b, c) {
           alert('problemo');
@@ -21,6 +23,10 @@ define(function () {
     },
     render: function (markup) {
       this.$el.html(markup);
+    },
+    onClose: function () {
+      this.off();
+      this.undelegateEvents();
     }
   })
 });
