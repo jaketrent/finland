@@ -5,6 +5,7 @@ define(
   , 'charts/SongView'
   , 'charts/ArtistsView'
   , 'charts/ArtistView'
+  , 'NonClientView'
   ], function
   ( ViewSwitcher
   , LinkHandler
@@ -12,6 +13,7 @@ define(
   , SongView
   , ArtistsView
   , ArtistView
+  , NonClientView
   ) {
   return Backbone.Router.extend({
     routes: {
@@ -19,7 +21,8 @@ define(
       'music/': 'songs',
       'music/song/:title_slug/': 'song',
       'artists/': 'artists',
-      'artists/:name_slug/': 'artist'
+      'artists/:name_slug/': 'artist',
+      '*path': 'nonClient'
     },
     initialize: function (options) {
       this.dataLoader = options.dataLoader;
@@ -46,6 +49,11 @@ define(
     artist: function (nameSlug) {
       this.viewSwitcher.switchView(new ArtistView({
         model: this.dataLoader.getArtist(nameSlug)
+      }));
+    },
+    nonClient: function () {
+      this.viewSwitcher.switchView(new NonClientView({
+        href: window.location.href
       }));
     }
   })
