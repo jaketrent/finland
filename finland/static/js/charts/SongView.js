@@ -11,7 +11,7 @@ define(['tmpl!charts/tmpl/song'], function (songTmpl) {
         $song.css({
           position: 'absolute',
           top: $song.position().top,
-          left: 0
+          left: 340
         }).animate({
           top: 210,
           color: '#fff'

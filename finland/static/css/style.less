@@ -35,13 +35,17 @@ a {
 }
 
 .lh {
-  float: left;
-  width: 30%;
-  min-width: 220px;
-  max-width: 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 240px;
 }
 .vert-stripe {
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 240px;
+  z-index: 1;
   width: 100px;
   background: @blue;
 }
@@ -51,10 +55,13 @@ a {
   width: 100%;
 }
 .rh {
-  float: left;
-  position: relative;
-  padding: 0;
-  padding-top: 250px;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 250px 0 0 340px;
 }
 
 #header {
@@ -126,4 +133,8 @@ a {
       max-width: 640px;
     }
   }
+}
+
+.pg-flat {
+  padding: 40px 0 0 40px;
 }

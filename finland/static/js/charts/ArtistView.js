@@ -8,7 +8,7 @@ define(['tmpl!charts/tmpl/artist'], function (artistTmpl) {
         $artist.css({
           position: 'absolute',
           top: $artist.position().top,
-          left: 0
+          left: 340
         }).animate({
           top: 210,
           color: '#fff'
