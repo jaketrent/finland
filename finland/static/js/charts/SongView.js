@@ -1,4 +1,4 @@
-define(['charts/Songs', 'tmpl!charts/tmpl/song'], function (Songs, songTmpl) {
+define(['tmpl!charts/tmpl/song'], function (songTmpl) {
   return Backbone.View.extend({
     el: '#main',
     events: {

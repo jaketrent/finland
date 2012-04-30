@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+<section class="horz-stripe">&nbsp;</section>
+<div class="pg pg-artists">
+  <ul>
+    {% for a in artists %}
+    <li class="entry artist" data-id="{{ a.id }}">
+      <header>
+        <a href="{% url artist a.name_slug %}" class="img">
+          <img src="{{ s.img }}" />
+        </a>
+        <div class="info">
+          <h2><a href="{% url artist s.name_slug %}">{{ a.name }}</a></h2>
+          <p>{{ s.location }}</p>
+        </div>
+      </header>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

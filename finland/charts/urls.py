@@ -9,7 +9,10 @@ v1_api.register(SongResource())
 
 urlpatterns = patterns('',
   url(r'^$', songs, name='songs'),
-  url(r'^song/(?P<title_slug>[\-\d\w]+)/$', song, name='song'),
+  url(r'^music/$', songs, name='songs2'),
+  url(r'^music/song/(?P<title_slug>[\-\d\w]+)/$', song, name='song'),
+  url(r'^artists/$', artists, name='artists'),
+  url(r'^artists/(?P<name_slug>[\-\d\w]+)/$', artist, name='artist'),
 
   (r'^api/', include(v1_api.urls)),
 )

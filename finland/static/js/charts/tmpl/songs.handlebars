@@ -2,14 +2,14 @@
 <div class="pg pg-songs">
   <ul>
     {{#each this}}
-    <li class="song" data-id="{{ id }}">
+    <li class="entry song" data-id="{{ id }}">
       <header>
-        <a href="#song/{{ title_slug }}/" class="album">
+        <a href="#music/song/{{ title_slug }}/" class="img">
           <img src="{{ art }}" />
         </a>
         <div class="info">
-          <h2><a href="#song/{{ title_slug }}/">{{ title }}</a></h2>
-          <p>{{ byline }} //// <a href="#">{{ artist.name }}</a></p>
+          <h2><a href="#music/song/{{ title_slug }}/">{{ title }}</a></h2>
+          <p>{{ byline }} / <a href="#artists/{{ name_slug }}">{{ artist.name }}</a></p>
         </div>
       </header>
     </li>

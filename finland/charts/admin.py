@@ -14,7 +14,7 @@ class SongAdmin(admin.ModelAdmin):
     }),
     ('Other', {
       'classes': ('',),
-      'fields': ('desc', 'art', 'tags')
+      'fields': ('desc', 'art', 'large_art', 'tags')
     }),
   )
 
@@ -26,7 +26,7 @@ class ArtistAdmin(admin.ModelAdmin):
   fieldsets = (
     (None, {
       'classes': ('',),
-      'fields': ('name', 'name_slug', 'img', 'location', 'desc')
+      'fields': ('name', 'name_slug', 'byline', 'img', 'large_img', 'location', 'desc')
     }),
   )
 

@@ -2,21 +2,22 @@
 
 {% block main %}
 <section class="horz-stripe">&nbsp;</section>
-<div class="pg pg-song">
-  <article class="song">
+<div class="pg pg-detail pg-song">
+  <article class="entry song">
     <header>
-      <a href="#" class="album">
+      <a href="#" class="img">
         <img src="{{ song.art }}" />
       </a>
       <div class="info">
         <h2><a href="#">{{ song.title }}</a></h2>
-        <p>{{ song.byline }} / <a href="#">{{ song.artist.name }}</a></p>
+        <p>{{ song.byline }} / <a href="{% url artist song.artist.name_slug %}">{{ song.artist.name }}</a></p>
       </div>
     </header>
     <p>
       <ul class="ctrls">
         <li><a href="{{ song.file }}" class="btn btn-primary play"><i class="icon-play icon-white"></i> Play</a></li>
         <li><a href="{{ song.file }}" class="btn btn-primary"><i class="icon-download-alt icon-white"></i> Download</a></li>
+        <li><a href="#" class="btn"><i class="icon-list"></i> Back to music</a></li>
       </ul>
     </p>
     <div class="desc">
