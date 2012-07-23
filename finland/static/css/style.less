@@ -1,10 +1,13 @@
+/*
 @import url('variables.less');
 @import url('mixins.less');
 @import url('sprites.less');
 @import url('buttons.less');
+*/
 
 @blue: #3060c2;
 
+/*
 body {
   background: #efefef;
   margin: 0;
@@ -137,4 +140,52 @@ a {
 
 .pg-flat {
   padding: 40px 0 0 40px;
+}
+*/
+.container {
+  margin: 0 auto;
+  margin-top: 100px;
+}
+#cube-wrapper {
+  -webkit-perspective: 800;
+  -webkit-perspective-origin: 50% 200px;
+}
+#cube {
+  position: relative;
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  -webkit-transform-style: preserve-3d;
+  color: #fff;
+}
+.face {
+  position: absolute;
+  height: 360px;
+  width: 360px;
+  padding: 20px;
+  background-color: rgba(50, 50, 50, 1);
+}
+#cube .one  {
+  -webkit-transform: rotateX(90deg) translateZ(200px);
+}
+
+#cube .two {
+  -webkit-transform: translateZ(200px);
+}
+
+#cube .three {
+  -webkit-transform: rotateY(90deg) translateZ(200px);
+}
+
+#cube .four {
+  -webkit-transform: rotateY(180deg) translateZ(200px);
+}
+
+#cube .five {
+  -webkit-transform: rotateY(-90deg) translateZ(200px);
+}
+
+#cube .six {
+  -webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
 }

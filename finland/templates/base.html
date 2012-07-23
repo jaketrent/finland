@@ -7,22 +7,6 @@
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
 </head>
 <body>
-  <section class="lh full-height" id="header">
-    <header>
-      <h1><a href="{% url songs %}"><span>The Spirit of</span> Finland</a></h1>
-      <nav>
-        <ul>
-          <li><a href="{% url songs %}">Music</a></li>
-          <li><a href="{% url artists %}">Artists</a></li>
-          <li><a href="/message/">Message</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section class="horz-stripe">&nbsp;</section>
-  </section>
-  <section class="vert-stripe full-height">&nbsp;</section>
-  <section class="rh full-height" id="main">
-    {% block main %}{% endblock %}
-  </section>
+  {% block main %}{% endblock %}
 </body>
 </html>
