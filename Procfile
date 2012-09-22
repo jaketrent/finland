@@ -1,1 +1,1 @@
-web: python finland/manage.py run_gunicorn -b 0.0.0.0:$PORT -w 3
+web: node src/app.js

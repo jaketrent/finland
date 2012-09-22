@@ -1,9 +1,3 @@
-bin
-build
-include
-lib
-.Python
-*.pyc
 .idea
 *.ipr
 *.iml
