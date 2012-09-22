@@ -7,6 +7,12 @@
 
 @blue: #3060c2;
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /*
 body {
   background: #efefef;
@@ -165,6 +171,12 @@ a {
   width: 360px;
   padding: 20px;
   background-color: rgba(50, 50, 50, 1);
+  .bg {
+    .overlay;
+  }
+  #cp_container_1 {
+    .overlay;
+  }
 }
 #cube .one  {
   -webkit-transform: rotateX(90deg) translateZ(200px);
@@ -189,3 +201,4 @@ a {
 #cube .six {
   -webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
 }
+
