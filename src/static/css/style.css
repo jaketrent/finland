@@ -3,6 +3,15 @@ body {
   margin: 0;
   color: #fff;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+}
 .container {
   height: 568px;
   width: 320px;
@@ -15,6 +24,9 @@ body {
   background: url("/img/blue-weave-bg.png");
   height: 568px;
   text-align: center;
+}
+.welcome h1 {
+  font-size: 1.5em;
 }
 .welcome .top,
 .welcome .bottom {
@@ -36,7 +48,12 @@ body {
 .welcome .bottom .createdby {
   margin-top: 45px;
 }
+.welcome .bottom .createdby h4 {
+  font-size: 0.5em;
+  text-transform: none;
+}
 .welcome .bottom .createdby .logo {
+  vertical-align: middle;
   width: 12.5px;
   height: 18.5px;
   margin-right: 10px;

@@ -1,7 +1,14 @@
+@import vars
+
 body
   padding 0
   margin 0
   color #fff
+
+h1, h2, h3, h4, h5, h6
+  font-family headerFont
+  text-transform uppercase
+
 .container
   height (1136/2)px
   width (640/2)px
@@ -15,6 +22,8 @@ body
   background url(/img/blue-weave-bg.png)
   height (1136/2)px // todo: mk dynamic
   text-align center
+  h1
+    font-size 1.5em
 
   .top
   .bottom
@@ -34,7 +43,11 @@ body
 
     .createdby
       margin-top 45px
+      h4
+        font-size .5em
+        text-transform none
       .logo
+        vertical-align middle
         width (25/2)px
         height (37/2)px
         margin-right 10px
