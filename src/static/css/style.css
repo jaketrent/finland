@@ -34,7 +34,7 @@ body {
   width: 100%;
 }
 .welcome .bottom .createdby {
-  border: 1px solid #00f;
+  margin-top: 45px;
 }
 .welcome .bottom .createdby .logo {
   width: 12.5px;
