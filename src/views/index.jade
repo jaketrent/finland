@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.welcome
+    div.top
+      img.flag(src='/img/flag-lrg-top.png')
+    div.bottom
+      img.flag(src='/img/flag-lrg-bottom.png')
+      h1 Finnish Music Project
+      div.createdby
+
+        h3
+          img.logo(src='/img/fizz-bubbles.png')
+          | by fizzbreaker
+  div.content
+    hidden

@@ -1,5 +1,43 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #f00;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+.container {
+  height: 568px;
+  width: 320px;
+  border: 1px solid #f00;
+}
+.container img {
+  max-width: 100%;
+}
+.welcome {
+  background: url("/img/blue-weave-bg.png");
+  height: 568px;
+  text-align: center;
+}
+.welcome .top,
+.welcome .bottom {
+  position: relative;
+}
+.welcome .top {
+  height: 50%;
+  width: 100%;
+}
+.welcome .top .flag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.welcome .bottom {
+  height: 50%;
+  width: 100%;
+}
+.welcome .bottom .createdby {
+  border: 1px solid #00f;
+}
+.welcome .bottom .createdby .logo {
+  width: 12.5px;
+  height: 18.5px;
+  margin-right: 10px;
 }
