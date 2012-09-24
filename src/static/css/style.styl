@@ -1,45 +1,53 @@
 @import vars
+@import nib
 
 body
   padding 0
   margin 0
   color #fff
+  background #ababab
 
 h1, h2, h3, h4, h5, h6
   font-family headerFont
   text-transform uppercase
 
 .container
-  height (1136/2)px
-  width (640/2)px
+  height (1136/2)px // todo: mk dyn
+  width (640/2)px // todo: mk dyn
   border 1px solid red
 
   img
     max-width 100%
 
-
 .welcome
-  background url(/img/blue-weave-bg.png)
-  height (1136/2)px // todo: mk dynamic
+  height (1136/2)px // todo: mk dyn
+  width (640/2)px // todo: mk dyn
   text-align center
   h1
     font-size 1.5em
 
   .top
   .bottom
-    position relative
+    position absolute
+    left 0
+    width (640/2)px // todo: mk dynamic
+    height ((1136/2)/2)px // todo: mk dynamic
+    background url(/img/blue-weave-bg.png)
+    transition all 800ms linear
 
+    .flag
+      width (640/2)px
 
   .top
-    height 50%
-    width 100%
+    top 0
+
     .flag
       position absolute
       bottom 0
       left 0
+
   .bottom
-    height 50%
-    width 100%
+    top ((1136/2)/2)px  //50%
 
     .createdby
       margin-top 45px
@@ -51,6 +59,13 @@ h1, h2, h3, h4, h5, h6
         width (25/2)px
         height (37/2)px
         margin-right 10px
+
+  &.opened
+    .top
+      transform translate(0,-((1136/2)/2)px)
+    .bottom
+      transform translate(0,(1136/2)px)
+
 
 
 
