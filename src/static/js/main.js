@@ -12,13 +12,14 @@ require({
     'backbone': {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
+    },
+    'handlebars': {
+      exports: 'Handlebars'
     }
   }
-}, ['backbone'], function () {
-  $(function () {
-    setTimeout(function () {
-      console.log('timed out');
-      $('.welcome').addClass('opened');
-    }, 1000);
+}, ['require', 'backbone', 'handlebars'], function (require) {
+  require(['./welcome/WelcomeView'], function (WelcomeView) {
+    var welcomeView = new WelcomeView();
+    $('.container').html(welcomeView.render().el);
   });
 });
