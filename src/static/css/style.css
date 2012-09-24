@@ -21,6 +21,11 @@ h6 {
 .container img {
   max-width: 100%;
 }
+.welcome-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .welcome {
   height: 568px;
   width: 320px;

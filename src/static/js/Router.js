@@ -8,8 +8,10 @@ define(['./artists/ArtistListView'], function (ArtistListView) {
       this.$container = $('.content-container');
     },
     artistList: function () {
-      var artistListView = new ArtistListView();
-      this.$container.html(artistListView.render().el);
+      var artistListView = new ArtistListView({
+        el: this.$container
+      });
+      artistListView.render();
       Backbone.Events.trigger('openWelcome');
     },
     artistDetail: function () {

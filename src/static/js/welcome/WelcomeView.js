@@ -1,7 +1,5 @@
 define(['tmpl!./welcome'], function (welcomeTmpl) {
   return Backbone.View.extend({
-    tagName: 'div',
-    className: 'welcome',
     initialize: function () {
       Backbone.Events.on('openWelcome', this.open, this);
     },
@@ -11,7 +9,7 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
     },
     open: function () {
       var self = this;
-      this.$el.addClass('opened');
+      this.$('.welcome').addClass('opened');
       setTimeout(function () {
         console.log('removing welcome');
         self.close();

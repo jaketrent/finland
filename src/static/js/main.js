@@ -20,16 +20,17 @@ require({
 }, ['require', 'backbone', 'handlebars'], function (require) {
 
   Backbone.View.prototype.close = function(){
-    this.remove();
-    this.unbind();
-    if (this.onClose){
+    this.off();
+    if (this.onClose) {
       this.onClose();
     }
   };
 
   require(['./Router', './welcome/WelcomeView'], function (Router, WelcomeView) {
-    var welcomeView = new WelcomeView();
-    $('.welcome-container').html(welcomeView.render().el);
+    var welcomeView = new WelcomeView({
+      el: $('.welcome-container')
+    });
+    welcomeView.render();
 
     var router = new Router();
     Backbone.history.start();
@@ -38,7 +39,6 @@ require({
       console.log('timed out!');
       router.navigate('artists', { trigger: true, replace: true });
     }, 1000);
-
   });
 
 
