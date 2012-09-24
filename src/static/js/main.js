@@ -18,8 +18,29 @@ require({
     }
   }
 }, ['require', 'backbone', 'handlebars'], function (require) {
-  require(['./welcome/WelcomeView'], function (WelcomeView) {
+
+  Backbone.View.prototype.close = function(){
+    this.remove();
+    this.unbind();
+    if (this.onClose){
+      this.onClose();
+    }
+  };
+
+  require(['./Router', './welcome/WelcomeView'], function (Router, WelcomeView) {
     var welcomeView = new WelcomeView();
-    $('.container').html(welcomeView.render().el);
+    $('.welcome-container').html(welcomeView.render().el);
+
+    var router = new Router();
+    Backbone.history.start();
+
+    setTimeout(function () {
+      console.log('timed out!');
+      router.navigate('artists', { trigger: true, replace: true });
+    }, 1000);
+
   });
+
+
+
 });

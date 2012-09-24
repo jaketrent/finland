@@ -3,16 +3,19 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
     tagName: 'div',
     className: 'welcome',
     initialize: function () {
-
+      Backbone.Events.on('openWelcome', this.open, this);
     },
     render: function () {
-      var self = this;
       this.$el.html(welcomeTmpl());
-      setTimeout(function () {
-        console.log('timed out');
-        self.$el.addClass('opened');
-      }, 1000);
       return this;
+    },
+    open: function () {
+      var self = this;
+      this.$el.addClass('opened');
+      setTimeout(function () {
+        console.log('removing welcome');
+        self.close();
+      }, 1000);
     }
   })
 });
