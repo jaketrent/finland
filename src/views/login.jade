@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1='Login'
+
+  form(method='post', action='/login')
+    label(for='username')
+    input(name='username', id='username')
+    label(for='password')
+    input(name='password', id='password')
+    input(type='submit', value='Login')
