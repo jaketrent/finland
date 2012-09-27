@@ -1,6 +1,4 @@
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
   , flash = require('connect-flash');
@@ -15,6 +13,8 @@ passport.use(new LocalStrategy(
 ));
 
 var app = express();
+
+
 
 app.configure(function(){
   app.set('port', process.env.PORT || 5000);
@@ -46,6 +46,8 @@ app.configure('production', function () {
   app.use(express.errorHandler());
 });
 
+var admin = require('./routes/admin')(app);
+
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -54,17 +56,20 @@ passport.deserializeUser(function(id, done) {
   done(null, { id: 123, username: 'jaketrent', password: 'jaketrent' });
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/login', function (req, res) {
-  res.render('login');
-});
-app.post('/login',
+//app.get('/', routes.index);
+//app.get('/users', routes.user.list);
+//app.get('/login', routes.auth.loginPg);
+app.post('/admin/login',
   passport.authenticate('local', { successRedirect: '/',
-    successRedirect: '/',
-    failureRedirect: '/login',
+    successRedirect: '/admin',
+    failureRedirect: '/admin/login',
     failureFlash: true })
 );
+//app.get('/admin', protect, routes.admin.index);
+/*function protect(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}*/
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
