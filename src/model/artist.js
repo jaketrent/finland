@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+  _ = require('underscore');
 
 mongoose.set('debug', true);
 var db = mongoose.createConnection('localhost', 'finland');
@@ -12,25 +13,22 @@ function handleError(data) {
 var Schema = mongoose.Schema
   , ObjectId = Schema.ObjectID;
 
-var UserSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    trim: true,
-    unique: true
+var ArtistSchema = new Schema({
+  name: {
+    type: String
   },
-  password: {
-    type: String,
-    required: true,
-    trim: true,
-    unique: true
+  photo: {
+    type: String
+  },
+  bio: {
+    type: String
   }
 });
 
-var User = db.model('user', UserSchema);
+var Artist = db.model('artist', ArtistSchema);
 
-module.exports.add = function (userData, next) {
-  var user = new User(userData);
+module.exports.add = function (data, next) {
+  var user = new Artist(data);
   user.save(function (error, data) {
     if (error) {
       next(error);
@@ -40,22 +38,22 @@ module.exports.add = function (userData, next) {
   });
 };
 
-module.exports.save = function (id, userData, next) {
-  User.update({
+module.exports.save = function (id, data, next) {
+  Artist.update({
       _id: id
     },
-    _.omit(userData, '_id'),
+    _.omit(data, '_id'),
     function (err, numberAffected, raw) {
       if (err) {
         next(err);
       } else {
-        next(null, userData);
+        next(null, data);
       }
     });
 };
 
 module.exports.remove = function (id, next) {
-  User.findById(id, function (err, user) {
+  Artist.findById(id, function (err, user) {
     if (err) {
       next(err);
     } else {
@@ -71,7 +69,7 @@ module.exports.remove = function (id, next) {
 };
 
 module.exports.findAll = function (next) {
-  User.find({}, function (error, data) {
+  Artist.find({}, function (error, data) {
     if (error) {
       next(error);
     } else {
@@ -81,7 +79,7 @@ module.exports.findAll = function (next) {
 };
 
 module.exports.findOne = function (attrs, next) {
-  User.find(attrs, function (error, data) {
+  Artist.find(attrs, function (error, data) {
     if (error) {
       next(error);
     } else {

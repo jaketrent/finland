@@ -8,4 +8,8 @@ module.exports = function (app) {
   app.get('/admin', sec.isInTheClub, function (req, res) {
     res.render('admin/index');
   });
+
+  app.get('/admin/:refreshedPartial', sec.isInTheClub, function (req, res) {
+    res.render('admin/index');
+  });
 };

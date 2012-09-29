@@ -2,13 +2,32 @@ doctype 5
 html(ng-app='finnadmin')
   head
     title Admin - Finnish Music Project
+    link(rel='stylesheet', href='/css/bootstrap/bootstrap-cerulean.css')
+    link(rel='stylesheet', href='/css/bootstrap/responsive.css')
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,400')
   body(ng-controller='RouterCtrl')
-    .container
-      h1 Admin
-      div.content(ng-view)
-        block content
+    div.navbar
+      div.navbar-inner
+        div.fluid-container
+          a(href='/admin').brand
+            span Finn
+            |Admin
+          ul.nav
+            li
+              a(href='/admin/artist')
+                i.icon-user.icon-white
+                |  Artists
+            //
+              li
+                a(href='/admin/song')
+                  i.icon-music.icon-white
+                  |  Songs
+
+    .fluid-container
+      .row-fluid
+        .span12(ng-view)
+          block content
 
     block scripts
       script(src='/js/vendor/angular.js')

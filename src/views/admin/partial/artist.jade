@@ -1,0 +1,59 @@
+.row-fluid
+  button.btn.btn-primary.pull-right(ng-click='toggleForm()')
+    i.icon-plus-sign.icon-white
+    |  Add Artist
+  h1 Artists
+.row-fluid
+  .span12
+    //
+      name
+      photo
+      bio
+      social
+        website
+        facebook
+        twitter
+      songs
+        title
+        mp3
+        meta?
+          time length
+          file size
+
+
+    div.form-horizontal.well.add-form
+      fieldset
+        legend
+          h3(ng-show='isNew()') Add Artist
+          h3(ng-hide='isNew()') Edit Artist
+        div.control-group
+          label.control-label(for='name')='Name'
+          div.controls
+            input(ng-model='artist.name', id='name')
+        div.control-group
+          label.control-label(for='photo')='Photo'
+          div.controls
+            input(ng-model='artist.photo', id='photo')
+        div.control-group
+          label.control-label(for='bio')='Bio'
+          div.controls
+            textarea(ng-model='artist.bio', id='bio')
+
+        div.form-actions
+          button.btn.btn-primary(ng-show='isNew()', ng-click='add()') Add
+          button.btn.btn-primary(ng-hide='isNew()', ng-click='save()') Save
+          &nbsp;
+          button.btn(ng-click='toggleForm()') Cancel
+
+
+    table.table.table-striped
+      tr(ng-repeat='a in artists')
+        td(style='width:10%')
+          button.btn.btn-primary.btn-small(ng-click="edit(a)")
+            i.icon-white.icon-pencil
+            |  Edit
+        td(style='width:80%') {{ a.name }}
+        td(style='width:10%')
+          button.btn.btn-small(ng-click="remove(a)")
+            i.icon-trash
+            |  Remove
