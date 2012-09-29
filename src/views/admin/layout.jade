@@ -1,10 +1,17 @@
 doctype 5
-html
+html(ng-app='finnadmin')
   head
     title Admin - Finnish Music Project
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,400')
-  body
+  body(ng-controller='RouterCtrl')
     .container
       h1 Admin
-      block content
+      div.content(ng-view)
+        block content
+
+    block scripts
+      script(src='/js/vendor/angular.js')
+      script(src='/js/vendor/jquery.js')
+      script(src='/js/vendor/underscore.js')
+      script(defer, src='/js/admin/admin.js')

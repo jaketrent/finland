@@ -9,10 +9,8 @@
     "express": "3.0.0rc4",
     "jade": "*",
     "stylus": "0.29.x",
-    "passport": "0.1.x",
-    "passport-local": "0.1.x",
     "mongoose": "3.1.x",
-    "connect-flash": "*",
-    "underscore": "1.4.x"
+    "underscore": "1.4.x",
+    "qs": "0.5.x"
   }
 }

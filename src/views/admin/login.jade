@@ -3,9 +3,14 @@ extends layout
 block content
   h1='Login'
 
-  form(method='post', action='/admin/login')
-    label(for='username')
-    input(name='username', id='username')
-    label(for='password')
-    input(name='password', id='password', type='password')
-    input(type='submit', value='Login')
+  form(id="login-form", action="/admin/login", method="POST")
+    input(id="assertion-field", type="hidden", name="assertion", value="")
+  header.masthead
+    div.inner
+      a.btn.btn-large.signin#browserid(href='/admin/login')
+        i.icon-eye-open
+        |  Sign In with Mozilla Persona
+
+block scripts
+  script(src='https://browserid.org/include.js')
+  script(src='/js/admin/login.js')
