@@ -61,6 +61,23 @@ function ArtistCtrl($scope, $http) {
         return artist._id !== removedartist._id;
       });
     });
-  }
+  };
+
+  $scope.addNewSong = function () {
+    var genUID = function() {
+      return ("0000" + (Math.random() * Math.pow(36, 4) << 0).toString(36)).substr(-4);
+    };
+    if (!$scope.artist.songs) {
+      $scope.artist.songs = [];
+    }
+    $scope.artist.songs.push({
+      id: genUID()
+    });
+  };
+  $scope.removeSong = function (songToRemove) {
+    $scope.artist.songs = _.reject($scope.artist.songs, function (song) {
+      return song.id === songToRemove.id;
+    });
+  };
 }
 

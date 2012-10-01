@@ -22,6 +22,9 @@ var ArtistSchema = new Schema({
   },
   bio: {
     type: String
+  },
+  songs: {
+    type: Array
   }
 });
 

@@ -39,6 +39,22 @@
           div.controls
             textarea(ng-model='artist.bio', id='bio')
 
+        div.control-group
+          label.control-label
+            |Songs
+
+          div.controls
+            .form-inline.song-row(ng-repeat='song in artist.songs')
+              input.input-small(ng-model='song.title', placeholder='Title')
+              &nbsp;
+              input.input-small(ng-model='song.file', placeholder='File')
+              &nbsp;
+              button.btn.btn-small(ng-click='removeSong(song)')
+                i.icon-remove.icon-white
+
+            button.btn.btn-small(ng-click='addNewSong()')
+              i.icon-plus-sign.icon-white
+
         div.form-actions
           button.btn.btn-primary(ng-show='isNew()', ng-click='add()') Add
           button.btn.btn-primary(ng-hide='isNew()', ng-click='save()') Save
