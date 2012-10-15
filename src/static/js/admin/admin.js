@@ -1,6 +1,7 @@
 angular.module('finnadmin', [], function($routeProvider, $locationProvider) {
   $routeProvider.when('/admin', {
-    templateUrl: '/admin/partial/menu'
+    templateUrl: '/admin/partial/artist',
+    controller: ArtistCtrl
   });
   $routeProvider.when('/admin/artist', {
     templateUrl: '/admin/partial/artist',
