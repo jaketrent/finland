@@ -35,6 +35,7 @@ var authRt = require('./routes/auth')(app);
 var adminRt = require('./routes/admin')(app);
 var artistRt = require('./routes/artist')(app);
 var partialRt = require('./routes/partial')(app);
+var mainRt = require('./routes/main')(app);
 var errorRt = require('./routes/error')(app);
 
 http.createServer(app).listen(app.get('port'), function(){

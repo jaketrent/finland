@@ -9,8 +9,8 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/ws/artist/:email', sec.isInTheClub, function (req, res) {
-    artist.findOne({ email: req.params.email }, function (artist) {
+  app.get('/ws/artist/:id', sec.isInTheClub, function (req, res) {
+    artist.findOne({ _id: req.params.id }, function (artist) {
       res.send(artist);
     });
   });
