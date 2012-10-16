@@ -12,7 +12,9 @@ define(['./artists/ArtistListView'], function (ArtistListView) {
         el: this.$container
       });
       artistListView.render();
-      Backbone.Events.trigger('openWelcome');
+      setTimeout(function () {
+        Backbone.Events.trigger('openWelcome');
+      }, 1500);
     },
     artistDetail: function () {
 

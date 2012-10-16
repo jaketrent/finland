@@ -27,6 +27,7 @@ h6 {
   left: 0;
 }
 .welcome {
+  border: 1px solid #008000;
   height: 568px;
   width: 320px;
   text-align: center;
@@ -41,6 +42,9 @@ h6 {
   width: 320px;
   height: 284px;
   background: url("/img/blue-weave-bg.png");
+}
+.welcome .top.transitional,
+.welcome .bottom.transitional {
   -webkit-transition: all 800ms linear;
   -moz-transition: all 800ms linear;
   -o-transition: all 800ms linear;
@@ -74,20 +78,6 @@ h6 {
   width: 12.5px;
   height: 18.5px;
   margin-right: 10px;
-}
-.welcome.opened .top {
-  -webkit-transform: translate(0, -284px);
-  -moz-transform: translate(0, -284px);
-  -o-transform: translate(0, -284px);
-  -ms-transform: translate(0, -284px);
-  transform: translate(0, -284px);
-}
-.welcome.opened .bottom {
-  -webkit-transform: translate(0, 568px);
-  -moz-transform: translate(0, 568px);
-  -o-transform: translate(0, 568px);
-  -ms-transform: translate(0, 568px);
-  transform: translate(0, 568px);
 }
 .fluid-container {
   max-width: 960px;

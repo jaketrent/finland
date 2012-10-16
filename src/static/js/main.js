@@ -27,6 +27,19 @@ require({
   };
 
   require(['./Router', './welcome/WelcomeView'], function (Router, WelcomeView) {
+
+    function sizeWindow() {
+      var winHeight = $(window).height();
+      var winWidth = $(window).width();
+
+      $('.container').css({
+        height: winHeight,
+        width: winWidth
+      });
+    }
+    $(window).on('resize', sizeWindow);
+    sizeWindow();
+
     var welcomeView = new WelcomeView({
       el: $('.welcome-container')
     });
