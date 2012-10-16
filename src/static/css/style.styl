@@ -44,15 +44,17 @@ h1, h2, h3, h4, h5, h6
       transition all 800ms linear
 
     .flag
-      width (640/2)px
+      width 640px
+      max-width 100%
+      margin 0 auto
 
   .top
     top 0
 
-    .flag
+    .flag-parent
       position absolute
-      bottom 0
-      left 0
+      bottom -4px // dunno why this isn't 0
+      width 100%
 
   .bottom
     top ((1136/2)/2)px
