@@ -8,16 +8,10 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       });
     },
     render: function () {
-      //this.artists.fetch();
-      this.artists.reset([
-        {
-          img: '/awesome.gif',
-          name: 'Selja Sini'
-        }
-      ]);
+      this.artists.fetch();
     },
     renderMarkup: function () {
-      this.$el.html(artistListTmpl());
+      this.$el.html(artistListTmpl(this.artists.toJSON()));
     }
   });
 });

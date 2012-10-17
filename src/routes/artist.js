@@ -3,13 +3,13 @@ var sec = require('./../lib/sec')
 
 module.exports = function (app) {
 
-  app.get('/ws/artist', sec.isInTheClub, function (req, res) {
+  app.get('/ws/artist', function (req, res) {
     artist.findAll(function (err, artists) {
       res.send(artists);
     });
   });
 
-  app.get('/ws/artist/:id', sec.isInTheClub, function (req, res) {
+  app.get('/ws/artist/:id', function (req, res) {
     artist.findOne({ _id: req.params.id }, function (artist) {
       res.send(artist);
     });
