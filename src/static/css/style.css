@@ -138,6 +138,9 @@ h6 {
   left: 0;
   z-index: 3;
 }
+.admin-pg {
+  background: #272b30;
+}
 .fluid-container {
   max-width: 960px;
   margin: 0 auto;

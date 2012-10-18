@@ -17,6 +17,11 @@ var ArtistSchema = new Schema({
   name: {
     type: String
   },
+  slug: {
+    type: String,
+    unique: true,
+    trim: true
+  },
   photo: {
     type: String
   },
