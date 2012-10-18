@@ -1,16 +1,9 @@
 define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
   return Backbone.View.extend({
     initialize: function () {
-      this.artists = new Artists();
-      this.artists.on('reset', this.renderMarkup, this);
-      this.artists.on('error', function () {
-        alert('Error retrieving artists');
-      });
+      this.artists = this.options.artists;
     },
     render: function () {
-      this.artists.fetch();
-    },
-    renderMarkup: function () {
       this.$el.html(artistListTmpl(this.artists.toJSON()));
     }
   });
