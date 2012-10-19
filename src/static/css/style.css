@@ -116,6 +116,48 @@ h6 {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
+.artist-detail .img-frm {
+  margin: 7px 2%;
+  max-width: 96%;
+  border: 10px solid #fff;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 2px 2px 3px #000;
+  box-shadow: 2px 2px 3px #000;
+}
+.artist-detail .horz-bar {
+  background: #add8e6;
+  padding: 10px 2%;
+}
+.artist-detail .horz-bar h1 {
+  margin: 0;
+  text-align: right;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.artist-detail .song-list {
+  list-style: none;
+  margin: 15px 0 0 0;
+  padding: 0;
+  background: #add8e6;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+.artist-detail .song-list .icon {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+  text-indent: -999em;
+}
+.artist-detail .song-list .icon.play {
+  background: url("../img/play-btn.png") no-repeat center;
+}
+.artist-detail .song-list .icon.add {
+  background: url("../img/plus-btn.png") no-repeat center;
+}
+.artist-detail .song-list .icon.download {
+  background: url("../img/download-btn.png") no-repeat center;
+}
 .player {
   position: fixed;
   z-index: 2;

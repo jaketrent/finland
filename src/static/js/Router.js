@@ -10,7 +10,7 @@ define(
   return Backbone.Router.extend({
     routes: {
       'artists': 'artistList',
-      'artist/:artistSlug': 'artistDetail'
+      'artists/:artistSlug': 'artistDetail'
     },
     initialize: function () {
       this.$container = $('.content-container');
@@ -47,8 +47,25 @@ define(
         this.view.render();
       }
     },
-    artistDetail: function () {
-      this.view = ArtistDetailView;
+    artistDetail: function (artistSlug) {
+      if (!this.view) {
+        setTimeout(function () {
+          Backbone.Events.trigger('openWelcome');
+        }, 1500);
+      } else {
+        this.view.close();
+      }
+
+
+      this.view = new ArtistDetailView({
+        el: this.$container,
+        artists: this.artists,
+        artistSlug: artistSlug
+      });
+      if (this.artistsFetched) {
+        console.log('detail rendered');
+        this.view.render();
+      }
     }
   });
 });

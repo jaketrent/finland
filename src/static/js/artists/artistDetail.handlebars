@@ -1,0 +1,32 @@
+<header class="header">
+  <h2>
+    <span>Finnish</span> Music Project
+    <img src="/img/flag-sm.png" height="22.5" width="39.5" />
+  </h2>
+</header>
+<div class="artist-detail">
+  <div class="img-frm">
+    <img src="{{ photo }}" />
+  </div>
+  <div class="horz-bar">
+    <h1>{{ name }}</h1>
+  </div>
+  <ul class="song-list">
+    {{#each songs}}
+      <li>
+        <a href="#" class="icon play">Play</a>
+        <span class="title">{{ title }}</span>
+        <a href="#" class="icon add">Add to Playlist</a>
+        <a href="#" class="icon download">Download</a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="player">
+  <div class="text">
+    <div class="song">Scoop me Up</div>
+    <div class="artist">Selja Sim</div>
+    <div class="time">3:44 / 4:55</div>
+  </div>
+  <img src="../img/player-bg.png" class="bg" />
+</div>

@@ -1,4 +1,5 @@
 @import vars
+@import mixins
 @import nib
 
 body
@@ -91,14 +92,45 @@ h1, h2, h3, h4, h5, h6
 
   li
     display inline-block
-    margin 7px 2%
-    max-width 96%
-    border 10px solid #fff
-    border-radius 4px
-    box-shadow 2px 2px 3px #000
+    photoish()
 
     img
       border-radius 4px
+
+.artist-detail
+  .img-frm
+    photoish()
+
+  .horz-bar
+    background blue
+    padding 10px 2%
+    h1
+      margin 0
+      text-align right
+      text-shadow 1px 1px 2px rgba(0,0,0,.5)
+
+  .song-list
+    list-style none
+    margin 15px 0 0 0
+    padding 0
+    background blue
+    border-radius 8px
+
+    .icon
+      display inline-block
+      height 30px
+      width 30px
+      overflow hidden
+      text-indent -999em
+
+      &.play
+        background url(../img/play-btn.png) no-repeat center;
+      &.add
+        background url(../img/plus-btn.png) no-repeat center;
+      &.download
+        background url(../img/download-btn.png) no-repeat center;
+
+
 
 .player
   position fixed
