@@ -38,7 +38,6 @@ define(
         this.view.close();
       }
 
-      // todo: call render and pass artist after fetched
       this.view = new ArtistListView({
         el: this.$container,
         artists: this.artists
