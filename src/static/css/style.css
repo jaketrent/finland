@@ -87,6 +87,10 @@ h6 {
   -webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.5), -3px 3px 4px rgba(0,0,0,0.5);
   box-shadow: 3px 3px 4px rgba(0,0,0,0.5), -3px 3px 4px rgba(0,0,0,0.5);
 }
+.header a {
+  text-decoration: none;
+  color: inherit;
+}
 .header h2 {
   font-size: 1.3em;
   text-shadow: 1px 1px 3px #000;
