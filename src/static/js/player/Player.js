@@ -3,69 +3,60 @@
 define(
 [ 'tmpl!./player'
 , 'tmpl!./text'
-, 'vendor/BufferLoader'
 ], function
 ( playerTmpl
 , textTmpl
 ) {
   return Backbone.View.extend({
     initialize: function () {
-      _.bindAll(this, 'onAudioLoaded');
+      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration');
       Backbone.Events.on('playSong', this.playSong, this);
-      this.context = new webkitAudioContext();
-      this.audioElems = [];
-      this.currentSongIndx = 0;
-    },
-    loadAudio: function () {
-      this.bufferLoader = new BufferLoader(this.context, this.audioFiles, this.onAudioLoaded);
-      this.bufferLoader.load();
-    },
-    resetAudioFiles: function (files) {
-      this.currentSongIndx = 0;
-      this.audioElems = [];
-      this.audioFiles = files;
-    },
-    onAudioLoaded: function (bufferList) {
-      var i = 0;
-      var j = 0;
-
-      for (i; i < bufferList.length; ++i) {
-        var bufferSource = this.context.createBufferSource();
-        bufferSource.buffer = bufferList[i];
-        bufferSource.loop = false;
-
-        var gainNode = this.context.createGainNode();
-        bufferSource.connect(gainNode);
-        gainNode.connect(this.context.destination);
-        gainNode.gain.value = 1;
-
-        var audioElem = {
-          source: bufferSource,
-          gainNode: gainNode
-        };
-
-        this.audioElems.push(audioElem);
+      this.browserSupportsAudio = window.Audio != undefined;
+      if (this.browserSupportsAudio) {
+        this.aud = new Audio();
+        this.aud.addEventListener('durationchange', this.updateCurrentDuration);
       }
+      this.queue = [];
+      this.currIndx = 0;
+    },
+    insertQueue: function (songDesc) {
+      this.queue.splice(this.currentIndex, 0, songDesc);
+    },
+    appendQueue: function (songDesc) {
+      this.queue.push(songDesc);
+    },
+    updateCurrentDuration: function () {
+      var lenInSec = this.aud.seekable.end(0);
+      var minsFraction = lenInSec / 60;
+      var mins = Math.floor(minsFraction);
+      var secs = Math.floor((minsFraction % 1) * 100)
+      this.getCurrentSongDesc().songLength = '' + mins + ':' + secs;
 
-      this.audioElems[this.currentSongIndx].source.noteOn(0);
-
+      this.displayCurrentText();
+    },
+    displayCurrentText: function () {
+      this.$('.text').html(textTmpl(this.getCurrentSongDesc()));
+    },
+    getCurrentSongDesc: function () {
+      return this.queue[this.currIndx];
+    },
+    playCurrentInQueue: function () {
+      this.aud.src = this.getCurrentSongDesc().file;
+      this.aud.play();
+      this.displayCurrentText();
     },
     render: function () {
       this.$el.html(playerTmpl());
     },
-    playSong: function (artist, indx) {
+    mkSongDesc: function (artist, indx) {
       var song = artist.get('songs')[indx];
-
-      this.$('.text').html(textTmpl({
-        artist: artist.toJSON(),
-        song: song
-      }));
-
-      this.resetAudioFiles([song.file]);
-
-      this.loadAudio();
-
-
+      song.artist = artist.get('name');
+      return song;
+    },
+    playSong: function (artist, indx) {
+      var songDesc = this.mkSongDesc(artist, indx);
+      this.insertQueue(songDesc);
+      this.playCurrentInQueue();
     }
   });
 });
