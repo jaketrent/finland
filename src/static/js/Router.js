@@ -2,10 +2,12 @@ define(
 [ './artists/ArtistListView'
 , './artists/ArtistDetailView'
 , './artists/Artists'
+, './player/Player'
 ], function
 ( ArtistListView
 , ArtistDetailView
 , Artists
+, Player
 ) {
   return Backbone.Router.extend({
     routes: {
@@ -34,6 +36,12 @@ define(
         setTimeout(function () {
           Backbone.Events.trigger('openWelcome');
         }, 1500);
+        if (!this.player) {
+          this.player = new Player({
+            el: '.player-container'
+          });
+          this.player.render();
+        }
       } else {
         this.view.close();
       }
@@ -52,6 +60,12 @@ define(
         setTimeout(function () {
           Backbone.Events.trigger('openWelcome');
         }, 1500);
+        if (!this.player) {
+          this.player = new Player({
+            el: '.player-container'
+          });
+          this.player.render();
+        }
       } else {
         this.view.close();
       }
