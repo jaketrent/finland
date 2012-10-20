@@ -111,10 +111,22 @@ h1, h2, h3, h4, h5, h6
 
   .song-list
     list-style none
-    margin 15px 0 0 0
-    padding 0
+    margin 15px 2% 0 2%
+    padding 0 0 20px 0
     background blue
     border-radius 8px
+    background url(/img/blue-weave-bg.png)
+
+    li
+      line-height 30px
+      padding 3px 5px
+      overflow hidden
+      border-bottom 1px solid darkBlueSeparator
+      border-top 1px solid lightBlueSeparator
+      text-shadow -1px -1px 1px rgba(0,0,0,.6)
+
+      &:first-child
+        border-top none
 
     .icon
       display inline-block
@@ -122,13 +134,19 @@ h1, h2, h3, h4, h5, h6
       width 30px
       overflow hidden
       text-indent -999em
+      background-size 50% 50%
 
       &.play
         background url(../img/play-btn.png) no-repeat center;
+        margin 0 10px 0 10px
       &.add
         background url(../img/plus-btn.png) no-repeat center;
+        float right
+        margin-right 10px
       &.download
         background url(../img/download-btn.png) no-repeat center;
+        float right
+        margin-right 10px
 
 
 
