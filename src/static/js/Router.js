@@ -12,7 +12,8 @@ define(
   return Backbone.Router.extend({
     routes: {
       'artists': 'artistList',
-      'artists/:artistSlug': 'artistDetail'
+      'artists/:artistSlug': 'artistDetail',
+      '*path': 'artistList'
     },
     initialize: function () {
       this.$container = $('.content-container');
