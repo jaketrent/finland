@@ -11,6 +11,7 @@ define(
     initialize: function () {
       _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint');
       Backbone.Events.on('playSong', this.playSong, this);
+      Backbone.Events.on('addSong', this.addSong, this);
       this.browserSupportsAudio = window.Audio != undefined;
       if (this.browserSupportsAudio) {
         this.aud = new Audio();
@@ -66,6 +67,11 @@ define(
       var songDesc = this.mkSongDesc(artist, indx);
       this.insertQueue(songDesc);
       this.playCurrentInQueue();
+    },
+    addSong: function (artist, indx) {
+      var songDesc = this.mkSongDesc(artist, indx);
+      this.appendQueue(songDesc);
+      console.log(this.queue);
     }
   });
 });

@@ -1,13 +1,16 @@
-define(['tmpl!./artistDetail', './Artists'], function (artistDetailTmpl, Artists) {
+define(['tmpl!./artistDetail'], function (artistDetailTmpl) {
   return Backbone.View.extend({
     initialize: function () {
       this.artists = this.options.artists;
-      this.artistSlug = this.options.artistSlug;
     },
     events: {
-      "click .play": "play"
+      "click .play": "playSong",
+      "click .add": "addSong"
     },
-    render: function () {
+    render: function (settings) {
+      if (settings) {
+        this.artistSlug = settings.artistSlug;
+      }
       var self = this;
       this.artist = (function findArtist() {
         return _(self.artists.models).find(function (artist) {
@@ -16,9 +19,14 @@ define(['tmpl!./artistDetail', './Artists'], function (artistDetailTmpl, Artists
       })();
       this.$el.html(artistDetailTmpl(this.artist.toJSON()));
     },
-    play: function (evt) {
+    playSong: function (evt) {
       var indx = $('.play').index($(evt.currentTarget));
       Backbone.Events.trigger('playSong', this.artist, indx);
+      evt.preventDefault();
+    },
+    addSong: function (evt) {
+      var indx = $('.add').index($(evt.currentTarget));
+      Backbone.Events.trigger('addSong', this.artist, indx);
       evt.preventDefault();
     }
   });

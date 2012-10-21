@@ -1,14 +1,10 @@
 define(
 [ './artists/ArtistListView'
 , './artists/ArtistDetailView'
-, './artists/Artists'
-, './player/Player'
 , './viewSwitcher'
 ], function
 ( ArtistListView
 , ArtistDetailView
-, Artists
-, Player
 , viewSwitcher
 ) {
   return Backbone.Router.extend({
@@ -30,7 +26,7 @@ define(
       viewSwitcher.switchToView({
         key: 'artistDetail',
         viewFn: ArtistDetailView,
-        opts: {
+        renderOpts: {
           artistSlug: artistSlug
         }
       });
