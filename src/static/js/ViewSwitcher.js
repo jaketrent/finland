@@ -3,13 +3,17 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
     init: function () {
       this.viewCache = {};
       this.$container = $('.content-container');
+      this.artists = new Artists();
+      this.defaultOpts = {
+        el: this.$container,
+        artists: this.artists
+      };
 
       this.player = new Player({
         el: '.player-container'
       });
       this.player.render();
 
-      this.artists = new Artists();
       this.artists.on('reset', function () {
         this.artistsFetched = true;
         if (this.currentView) {
@@ -19,12 +23,6 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
       this.artists.on('error', function () {
         alert('Error loading artists');
       });
-
-      this.defaultOpts = {
-        el: this.$container,
-        artists: this.artists
-      };
-
       this.artists.fetch();
     },
     findViewInCache: function (key) {
