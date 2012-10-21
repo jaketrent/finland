@@ -17,7 +17,8 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
       this.artists.on('reset', function () {
         this.artistsFetched = true;
         if (this.currentView) {
-          this.findViewInCache(this.currentView).render();
+          var cachedView = this.findViewInCache(this.currentView);
+          cachedView.view.render(cachedView.renderOpts);
         }
       }, this);
       this.artists.on('error', function () {
@@ -28,9 +29,11 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
     findViewInCache: function (key) {
       return this.viewCache[key];
     },
-    cacheNewView: function (key, viewFn, opts) {
+    cacheNewView: function (key, viewFn, opts, renderOpts) {
       var viewInstance = new viewFn(_.extend({}, this.defaultOpts, opts));
-      this.viewCache[key] = viewInstance;
+      this.viewCache[key] = {};
+      this.viewCache[key].view = viewInstance;
+      this.viewCache[key].renderOpts = renderOpts;
       return viewInstance;
     },
     closeWelcome: function () {
@@ -44,13 +47,13 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
       this.closeWelcome();
       this.currentView = settings.key;
 
-      var cachedViewInstance = this.findViewInCache(settings.key);
-      var view = cachedViewInstance
-        ? cachedViewInstance
-        : this.cacheNewView(settings.key, settings.viewFn, settings.opts);
+      var cachedView = this.findViewInCache(settings.key);
+      var view = cachedView
+        ? cachedView.view
+        : this.cacheNewView(settings.key, settings.viewFn, settings.opts, settings.renderOpts);
 
       if (this.artistsFetched) {
-        view.render();
+        view.render(settings.renderOpts);
       }
     }
   };
