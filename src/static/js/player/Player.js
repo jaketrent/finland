@@ -9,12 +9,13 @@ define(
 ) {
   return Backbone.View.extend({
     initialize: function () {
-      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration');
+      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint');
       Backbone.Events.on('playSong', this.playSong, this);
       this.browserSupportsAudio = window.Audio != undefined;
       if (this.browserSupportsAudio) {
         this.aud = new Audio();
         this.aud.addEventListener('durationchange', this.updateCurrentDuration);
+        this.aud.addEventListener('timeupdate', this.updateCurrentTimePoint);
       }
       this.queue = [];
       this.currIndx = 0;
@@ -29,9 +30,20 @@ define(
       var lenInSec = this.aud.seekable.end(0);
       var minsFraction = lenInSec / 60;
       var mins = Math.floor(minsFraction);
-      var secs = Math.floor((minsFraction % 1) * 100);
-      this.getCurrentSongDesc().songLength = '' + mins + ':' + secs;
-      this.displayCurrentText();
+      var secs = Math.floor((minsFraction % 1) * 60);
+      var songDesc = this.getCurrentSongDesc();
+      var pad = secs < 10 ? '0' : '';
+      songDesc.songLength = '' + mins + ':' + pad + secs;
+      this.$('.duration').html(songDesc.songLength);
+    },
+    updateCurrentTimePoint: function () {
+      var timeInSec = this.aud.currentTime;
+      var minsFraction = timeInSec / 60;
+      var mins = Math.floor(minsFraction);
+      var secs = Math.floor((minsFraction % 1) * 60);
+      var songDesc = this.getCurrentSongDesc();
+      var pad = secs < 10 ? '0' : '';
+      this.$('.current-time').html('' + mins + ':' + pad + secs);
     },
     displayCurrentText: function () {
       this.$('.text').html(textTmpl(this.getCurrentSongDesc()));

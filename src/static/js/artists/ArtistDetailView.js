@@ -19,6 +19,7 @@ define(['tmpl!./artistDetail', './Artists'], function (artistDetailTmpl, Artists
     play: function (evt) {
       var indx = $('.play').index($(evt.currentTarget));
       Backbone.Events.trigger('playSong', this.artist, indx);
+      evt.preventDefault();
     }
   });
 });
