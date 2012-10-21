@@ -27,23 +27,21 @@ define(
       this.queue.push(songDesc);
     },
     updateCurrentDuration: function () {
-      var lenInSec = this.aud.seekable.end(0);
-      var minsFraction = lenInSec / 60;
-      var mins = Math.floor(minsFraction);
-      var secs = Math.floor((minsFraction % 1) * 60);
+      var time = this.secsToDisplayTime(this.aud.seekable.end(0));
       var songDesc = this.getCurrentSongDesc();
-      var pad = secs < 10 ? '0' : '';
-      songDesc.songLength = '' + mins + ':' + pad + secs;
+      songDesc.songLength = time;
       this.$('.duration').html(songDesc.songLength);
     },
     updateCurrentTimePoint: function () {
-      var timeInSec = this.aud.currentTime;
-      var minsFraction = timeInSec / 60;
+      var time = this.secsToDisplayTime(this.aud.currentTime);
+      this.$('.current-time').html(time);
+    },
+    secsToDisplayTime: function (secs) {
+      var minsFraction = secs / 60;
       var mins = Math.floor(minsFraction);
       var secs = Math.floor((minsFraction % 1) * 60);
-      var songDesc = this.getCurrentSongDesc();
       var pad = secs < 10 ? '0' : '';
-      this.$('.current-time').html('' + mins + ':' + pad + secs);
+      return '' + mins + ':' + pad + secs;
     },
     displayCurrentText: function () {
       this.$('.text').html(textTmpl(this.getCurrentSongDesc()));
