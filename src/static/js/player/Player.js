@@ -9,7 +9,7 @@ define(
 ) {
   return Backbone.View.extend({
     initialize: function () {
-      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint');
+      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint', 'advanceSong');
       Backbone.Events.on('playSong', this.playSong, this);
       Backbone.Events.on('addSong', this.addSong, this);
       this.browserSupportsAudio = window.Audio != undefined;
@@ -17,6 +17,7 @@ define(
         this.aud = new Audio();
         this.aud.addEventListener('durationchange', this.updateCurrentDuration);
         this.aud.addEventListener('timeupdate', this.updateCurrentTimePoint);
+        this.aud.addEventListener('ended', this.advanceSong);
       }
       this.queue = [];
       this.currIndx = 0;
@@ -72,6 +73,12 @@ define(
       var songDesc = this.mkSongDesc(artist, indx);
       this.appendQueue(songDesc);
       console.log(this.queue);
+    },
+    advanceSong: function () {
+      if (this.currIndx < this.queue.length - 1) {
+        ++this.currIndx;
+      }
+      this.playCurrentInQueue();
     }
   });
 });
