@@ -9,7 +9,7 @@ define(
 ) {
   return Backbone.View.extend({
     initialize: function () {
-      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint', 'togglePlayQueueCurrent', 'playQueuePrevious', 'playQueueNext');
+      _.bindAll(this, 'render', 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint', 'togglePlayQueueCurrent', 'playQueuePrevious', 'playQueueNext');
       Backbone.Events.on('playSong', this.playSong, this);
       Backbone.Events.on('addSong', this.addSong, this);
       this.browserSupportsAudio = window.Audio != undefined;
@@ -28,7 +28,7 @@ define(
       'click .fwd-btn': 'playQueueNext'
     },
     insertQueue: function (songDesc) {
-      this.queue.splice(this.currentIndex, 0, songDesc);
+      this.queue.splice(this.currIndx + 1, 0, songDesc);
     },
     appendQueue: function (songDesc) {
       this.queue.push(songDesc);
@@ -72,7 +72,7 @@ define(
     playSong: function (artist, indx) {
       var songDesc = this.mkSongDesc(artist, indx);
       this.insertQueue(songDesc);
-      this.playCurrentInQueue();
+      this.playQueueNext();
     },
     addSong: function (artist, indx) {
       var songDesc = this.mkSongDesc(artist, indx);
@@ -89,8 +89,8 @@ define(
     playQueueNext: function () {
       if (this.currIndx < this.queue.length - 1) {
         ++this.currIndx;
-        this.playCurrentInQueue();
       }
+      this.playCurrentInQueue();
     },
     playQueuePrevious: function () {
       if (this.currIndx > 0) {
