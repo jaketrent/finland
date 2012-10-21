@@ -77,8 +77,8 @@ define(
     advanceSong: function () {
       if (this.currIndx < this.queue.length - 1) {
         ++this.currIndx;
+        this.playCurrentInQueue();
       }
-      this.playCurrentInQueue();
     }
   });
 });
