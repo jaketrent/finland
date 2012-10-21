@@ -189,6 +189,70 @@ h6 {
   left: 0;
   width: 320px;
   height: 122px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-image: url("../img/player-bg.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .player {
+    background-image: url("../img/player-bg@2x.png");
+    -webkit-background-size: 320px 122px;
+    -moz-background-size: 320px 122px;
+    background-size: 320px 122px;
+  }
+}
+.player .btn {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.player .play-btn {
+  z-index: 6;
+  bottom: 23px;
+  left: 22px;
+  height: 82px;
+  width: 82px;
+  background-image: url("../img/player-play-btn.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .player .play-btn {
+    background-image: url("../img/player-play-btn@2x.png");
+    -webkit-background-size: 82px 82px;
+    -moz-background-size: 82px 82px;
+    background-size: 82px 82px;
+  }
+}
+.player .back-btn {
+  z-index: 5;
+  bottom: 9px;
+  left: 2px;
+  height: 30px;
+  width: 60px;
+  background-image: url("../img/player-back-btn.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .player .back-btn {
+    background-image: url("../img/player-back-btn@2x.png");
+    -webkit-background-size: 60px 30px;
+    -moz-background-size: 60px 30px;
+    background-size: 60px 30px;
+  }
+}
+.player .fwd-btn {
+  z-index: 5;
+  bottom: 9px;
+  left: 62px;
+  height: 30px;
+  width: 57px;
+  background-image: url("../img/player-fwd-btn.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .player .fwd-btn {
+    background-image: url("../img/player-fwd-btn@2x.png");
+    -webkit-background-size: 57px 30px;
+    -moz-background-size: 57px 30px;
+    background-size: 57px 30px;
+  }
 }
 .player .text {
   position: absolute;
@@ -198,11 +262,6 @@ h6 {
   font-size: 12px;
   line-height: 18px;
   color: #add8e6;
-}
-.player .bg {
-  top: 0;
-  left: 0;
-  z-index: 3;
 }
 .admin-pg {
   background: #272b30;

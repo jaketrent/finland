@@ -160,6 +160,38 @@ h1, h2, h3, h4, h5, h6
   left 0
   width 320px
   height 122px
+  background-repeat no-repeat
+  background-position left bottom
+  image("../img/player-bg.png", 320px, 122px)
+
+  .btn
+    position absolute
+    background-repeat no-repeat
+    background-position center
+
+  .play-btn
+    z-index 6
+    bottom 23px
+    left 22px
+    height 82px
+    width 82px
+    image("../img/player-play-btn.png", 82px, 82px)
+
+  .back-btn
+    z-index 5
+    bottom 9px
+    left 2px
+    height 30px
+    width 60px
+    image("../img/player-back-btn.png", 60px, 30px)
+
+  .fwd-btn
+    z-index 5
+    bottom 9px
+    left 62px
+    height 30px
+    width 57px
+    image("../img/player-fwd-btn.png", 57px, 30px)
 
   .text
     position absolute
@@ -170,10 +202,6 @@ h1, h2, h3, h4, h5, h6
     line-height 18px
     color lightblue
 
-  .bg
-    top 0
-    left 0
-    z-index 3
 
 .admin-pg
   background #272B30
