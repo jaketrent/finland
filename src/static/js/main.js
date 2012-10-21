@@ -47,11 +47,6 @@ require({
 */
     var router = new Router();
     Backbone.history.start();
-
-    setTimeout(function () {
-      console.log('timed out!');
-      router.navigate('artists', { trigger: true, replace: true });
-    }, 1000);
   });
 
 
