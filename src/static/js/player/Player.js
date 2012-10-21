@@ -72,7 +72,11 @@ define(
     playSong: function (artist, indx) {
       var songDesc = this.mkSongDesc(artist, indx);
       this.insertQueue(songDesc);
-      this.playQueueNext();
+      if (this.queue.length > 1) {
+        this.playQueueNext();
+      } else {
+        this.playCurrentInQueue();
+      }
     },
     addSong: function (artist, indx) {
       var songDesc = this.mkSongDesc(artist, indx);
@@ -89,8 +93,8 @@ define(
     playQueueNext: function () {
       if (this.currIndx < this.queue.length - 1) {
         ++this.currIndx;
+        this.playCurrentInQueue();
       }
-      this.playCurrentInQueue();
     },
     playQueuePrevious: function () {
       if (this.currIndx > 0) {
