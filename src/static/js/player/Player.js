@@ -29,9 +29,8 @@ define(
       var lenInSec = this.aud.seekable.end(0);
       var minsFraction = lenInSec / 60;
       var mins = Math.floor(minsFraction);
-      var secs = Math.floor((minsFraction % 1) * 100)
+      var secs = Math.floor((minsFraction % 1) * 100);
       this.getCurrentSongDesc().songLength = '' + mins + ':' + secs;
-
       this.displayCurrentText();
     },
     displayCurrentText: function () {
