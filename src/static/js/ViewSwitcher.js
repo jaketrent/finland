@@ -12,7 +12,6 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
       this.player = new Player({
         el: '.player-container'
       });
-      this.player.render();
 
       this.artists.on('reset', function () {
         this.artistsFetched = true;
@@ -41,6 +40,8 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
         setTimeout(function () {
           Backbone.Events.trigger('openWelcome');
         }, 1500);
+        /*setTimeout(this.player.render, 3000);*/
+        this.player.render();
       }
     },
     switchToView: function (settings) {
