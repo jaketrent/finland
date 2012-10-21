@@ -202,24 +202,25 @@ h6 {
   }
 }
 .player .btn {
+  cursor: pointer;
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
 }
 .player .play-btn {
   z-index: 6;
-  bottom: 23px;
-  left: 22px;
-  height: 82px;
+  bottom: 39px;
+  left: 21.5px;
+  height: 65px;
   width: 82px;
   background-image: url("../img/player-play-btn.png");
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .player .play-btn {
     background-image: url("../img/player-play-btn@2x.png");
-    -webkit-background-size: 82px 82px;
-    -moz-background-size: 82px 82px;
-    background-size: 82px 82px;
+    -webkit-background-size: 82px 65px;
+    -moz-background-size: 82px 65px;
+    background-size: 82px 65px;
   }
 }
 .player .back-btn {

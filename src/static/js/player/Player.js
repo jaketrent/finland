@@ -9,7 +9,7 @@ define(
 ) {
   return Backbone.View.extend({
     initialize: function () {
-      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint', 'advanceSong');
+      _.bindAll(this, 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint', 'togglePlayQueueCurrent', 'playQueuePrevious', 'playQueueNext');
       Backbone.Events.on('playSong', this.playSong, this);
       Backbone.Events.on('addSong', this.addSong, this);
       this.browserSupportsAudio = window.Audio != undefined;
@@ -17,10 +17,15 @@ define(
         this.aud = new Audio();
         this.aud.addEventListener('durationchange', this.updateCurrentDuration);
         this.aud.addEventListener('timeupdate', this.updateCurrentTimePoint);
-        this.aud.addEventListener('ended', this.advanceSong);
+        this.aud.addEventListener('ended', this.playQueueNext);
       }
       this.queue = [];
       this.currIndx = 0;
+    },
+    events: {
+      'click .play-btn': 'togglePlayQueueCurrent',
+      'click .back-btn': 'playQueuePrevious',
+      'click .fwd-btn': 'playQueueNext'
     },
     insertQueue: function (songDesc) {
       this.queue.splice(this.currentIndex, 0, songDesc);
@@ -74,9 +79,22 @@ define(
       this.appendQueue(songDesc);
       console.log(this.queue);
     },
-    advanceSong: function () {
+    togglePlayQueueCurrent: function () {
+      if (this.aud.paused || this.aud.ended) {
+        this.aud.play();
+      } else {
+        this.aud.pause();
+      }
+    },
+    playQueueNext: function () {
       if (this.currIndx < this.queue.length - 1) {
         ++this.currIndx;
+        this.playCurrentInQueue();
+      }
+    },
+    playQueuePrevious: function () {
+      if (this.currIndx > 0) {
+        --this.currIndx;
         this.playCurrentInQueue();
       }
     }
