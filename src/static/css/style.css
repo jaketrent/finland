@@ -82,7 +82,7 @@ h6 {
   margin-right: 10px;
 }
 .header {
-  background: url("/img/blue-weave-bg.png");
+  background: url("/img/blue-weave-dark-bg.png");
   padding: 20px 0;
   -webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.5), -3px 3px 4px rgba(0,0,0,0.5);
   box-shadow: 3px 3px 4px rgba(0,0,0,0.5), -3px 3px 4px rgba(0,0,0,0.5);
@@ -130,7 +130,7 @@ h6 {
   box-shadow: 2px 2px 3px #000;
 }
 .artist-detail .horz-bar {
-  background: #add8e6;
+  background: #0a88d9;
   padding: 10px 2%;
 }
 .artist-detail .horz-bar h1 {
@@ -142,7 +142,7 @@ h6 {
   list-style: none;
   margin: 15px 2% 0 2%;
   padding: 0 0 20px 0;
-  background: #add8e6;
+  background: #0a88d9;
   -webkit-border-radius: 8px;
   border-radius: 8px;
   background: url("/img/blue-weave-bg.png");
