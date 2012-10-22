@@ -103,6 +103,7 @@ h1, h2, h3, h4, h5, h6
 .artist-detail
   .img-frm
     photoish()
+    margin 20px 2%
 
   .horz-bar
     background blue
@@ -114,7 +115,7 @@ h1, h2, h3, h4, h5, h6
 
   .song-list
     list-style none
-    margin 15px 2% 0 2%
+    margin 20px 2% 0 2%
     padding 0 0 20px 0
     background blue
     border-radius 8px
@@ -137,17 +138,18 @@ h1, h2, h3, h4, h5, h6
       width 30px
       overflow hidden
       text-indent -999em
-      background-size 50% 50%
+      background-repeat no-repeat
+      background-position center
 
       &.play
-        background url(../img/play-btn.png) no-repeat center;
+        image("../img/play-btn.png", 11px, 12px);
         margin 0 10px 0 10px
       &.add
-        background url(../img/plus-btn.png) no-repeat center;
+        image("../img/plus-btn.png", 12px, 11px);
         float right
         margin-right 10px
       &.download
-        background url(../img/download-btn.png) no-repeat center;
+        image("../img/download-btn.png", 15px, 12px);
         float right
         margin-right 10px
 

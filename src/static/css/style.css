@@ -128,6 +128,7 @@ h6 {
   border-radius: 4px;
   -webkit-box-shadow: 2px 2px 3px #000;
   box-shadow: 2px 2px 3px #000;
+  margin: 20px 2%;
 }
 .artist-detail .horz-bar {
   background: #0a88d9;
@@ -140,7 +141,7 @@ h6 {
 }
 .artist-detail .song-list {
   list-style: none;
-  margin: 15px 2% 0 2%;
+  margin: 20px 2% 0 2%;
   padding: 0 0 20px 0;
   background: #0a88d9;
   -webkit-border-radius: 8px;
@@ -164,23 +165,46 @@ h6 {
   width: 30px;
   overflow: hidden;
   text-indent: -999em;
-  -webkit-background-size: 50% 50%;
-  -moz-background-size: 50% 50%;
-  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .artist-detail .song-list .icon.play {
-  background: url("../img/play-btn.png") no-repeat center;
+  background-image: url("../img/play-btn.png");
   margin: 0 10px 0 10px;
 }
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .artist-detail .song-list .icon.play {
+    background-image: url("../img/play-btn@2x.png");
+    -webkit-background-size: 11px 12px;
+    -moz-background-size: 11px 12px;
+    background-size: 11px 12px;
+  }
+}
 .artist-detail .song-list .icon.add {
-  background: url("../img/plus-btn.png") no-repeat center;
+  background-image: url("../img/plus-btn.png");
   float: right;
   margin-right: 10px;
 }
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .artist-detail .song-list .icon.add {
+    background-image: url("../img/plus-btn@2x.png");
+    -webkit-background-size: 12px 11px;
+    -moz-background-size: 12px 11px;
+    background-size: 12px 11px;
+  }
+}
 .artist-detail .song-list .icon.download {
-  background: url("../img/download-btn.png") no-repeat center;
+  background-image: url("../img/download-btn.png");
   float: right;
   margin-right: 10px;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .artist-detail .song-list .icon.download {
+    background-image: url("../img/download-btn@2x.png");
+    -webkit-background-size: 15px 12px;
+    -moz-background-size: 15px 12px;
+    background-size: 15px 12px;
+  }
 }
 .player {
   position: fixed;
