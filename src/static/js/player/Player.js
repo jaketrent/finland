@@ -92,15 +92,28 @@ define(
     },
     playQueueNext: function () {
       if (this.currIndx < this.queue.length - 1) {
-        ++this.currIndx;
+        this.incrementIndx();
         this.playCurrentInQueue();
       }
     },
     playQueuePrevious: function () {
       if (this.currIndx > 0) {
-        --this.currIndx;
+        this.decrementIndx();
         this.playCurrentInQueue();
       }
+    },
+    incrementIndx: function () {
+      this.addToIndx(1);
+    },
+    decrementIndx: function () {
+      this.addToIndx(-1);
+    },
+    addToIndx: function (num) {
+      this.currIndx += num;
+      this.displayQueueText();
+    },
+    displayQueueText: function () {
+      this.$('.queue-status').html('' + (this.currIndx + 1) + '/' + this.queue.length + ' in playlist');
     }
   });
 });
