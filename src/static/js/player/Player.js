@@ -29,9 +29,11 @@ define(
     },
     insertQueue: function (songDesc) {
       this.queue.splice(this.currIndx + 1, 0, songDesc);
+      this.displayQueueText();
     },
     appendQueue: function (songDesc) {
       this.queue.push(songDesc);
+      this.displayQueueText();
     },
     updateCurrentDuration: function () {
       var time = this.secsToDisplayTime(this.aud.seekable.end(0));
@@ -56,10 +58,17 @@ define(
     getCurrentSongDesc: function () {
       return this.queue[this.currIndx];
     },
-    playCurrentInQueue: function () {
-      this.aud.src = this.getCurrentSongDesc().file;
+    playCurrentInQueue: function (checkSrcBeforeReload) {
+      if (checkSrcBeforeReload) {
+        if (!this.aud.src) {
+          this.aud.src = this.getCurrentSongDesc().file;
+        }
+      } else {
+        this.aud.src = this.getCurrentSongDesc().file;
+      }
       this.aud.play();
       this.displayCurrentText();
+      this.displayQueueText();
     },
     render: function () {
       this.$el.html(playerTmpl());
@@ -85,7 +94,7 @@ define(
     },
     togglePlayQueueCurrent: function () {
       if (this.aud.paused || this.aud.ended) {
-        this.aud.play();
+        this.playCurrentInQueue(true);
       } else {
         this.aud.pause();
       }
@@ -110,10 +119,9 @@ define(
     },
     addToIndx: function (num) {
       this.currIndx += num;
-      this.displayQueueText();
     },
     displayQueueText: function () {
-      this.$('.queue-status').html('' + (this.currIndx + 1) + '/' + this.queue.length + ' in playlist');
+      this.$('.queue-status').html('' + (this.currIndx + 1) + '/' + this.queue.length + ' queued');
     }
   });
 });

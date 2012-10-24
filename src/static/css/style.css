@@ -101,6 +101,23 @@ h6 {
 .header h2 span {
   color: #fff;
 }
+.header .flag {
+  display: inline-block;
+  width: 35px;
+  height: 23px;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  margin-bottom: -4px;
+  background-image: url("../img/flag.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .header .flag {
+    background-image: url("../img/flag@2x.png");
+    -webkit-background-size: 35px 23px;
+    -moz-background-size: 35px 23px;
+    background-size: 35px 23px;
+  }
+}
 .artist-list ul {
   padding: 0;
   margin: 0;
