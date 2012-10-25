@@ -120,6 +120,18 @@ h1, h2, h3, h4, h5, h6
     photoish()
     display inline-block
     margin 20px 2%
+    position relative
+
+    &.info:after
+      content ''
+      height 23px
+      width 23px
+      display block
+      position absolute
+      bottom 7px
+      right 4px
+      image("../img/info-btn.png", 23px, 23px)
+
 
   .horz-bar
     background blue
@@ -135,7 +147,7 @@ h1, h2, h3, h4, h5, h6
     padding 0 0 20px 0
     background blue
     border-radius 8px
-    background url(/img/blue-weave-bg.png)
+    background url(../img/blue-weave-bg.png)
 
     li
       line-height 30px

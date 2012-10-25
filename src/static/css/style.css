@@ -159,6 +159,25 @@ h6 {
   box-shadow: 2px 2px 3px #000;
   display: inline-block;
   margin: 20px 2%;
+  position: relative;
+}
+.artist-detail .img-frm.info:after {
+  content: '';
+  height: 23px;
+  width: 23px;
+  display: block;
+  position: absolute;
+  bottom: 7px;
+  right: 4px;
+  background-image: url("../img/info-btn.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .artist-detail .img-frm.info:after {
+    background-image: url("../img/info-btn@2x.png");
+    -webkit-background-size: 23px 23px;
+    -moz-background-size: 23px 23px;
+    background-size: 23px 23px;
+  }
 }
 .artist-detail .horz-bar {
   background: #0a88d9;
@@ -176,7 +195,7 @@ h6 {
   background: #0a88d9;
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  background: url("/img/blue-weave-bg.png");
+  background: url("../img/blue-weave-bg.png");
 }
 .artist-detail .song-list li {
   line-height: 30px;

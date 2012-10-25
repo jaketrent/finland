@@ -7,7 +7,7 @@
   </h2>
 </header>
 <div class="artist-detail">
-  <div class="img-frm info">
+  <div class="img-frm">
     <a href="#artists/{{ slug }}/info"><img src="{{ photo }}" /></a>
   </div>
   <div class="horz-bar">
@@ -15,12 +15,12 @@
   </div>
   <ul class="song-list">
     {{#each songs}}
-      <li>
-        <a href="#" class="icon play">Play</a>
-        <span class="title">{{ title }}</span>
-        <a href="#" class="icon add">Add to Playlist</a>
-        <a href="{{ file }}" target="_blank" class="icon download">Download</a>
-      </li>
+    <li>
+      <a href="#" class="icon play">Play</a>
+      <span class="title">{{ title }}</span>
+      <a href="#" class="icon add">Add to Playlist</a>
+      <a href="{{ file }}" target="_blank" class="icon download">Download</a>
+    </li>
     {{/each}}
   </ul>
 </div>
