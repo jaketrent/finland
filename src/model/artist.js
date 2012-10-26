@@ -2,8 +2,8 @@ var mongoose = require('mongoose'),
   _ = require('underscore');
 
 mongoose.set('debug', true);
-var databaseUrl = process.env.MONGOHQ_URL || 'localhost';
-var db = mongoose.createConnection(databaseUrl, 'finland');
+var databaseUrl = process.env.MONGOHQ_URL || 'mongodb://localhost:27017/finland';
+var db = mongoose.createConnection(databaseUrl);
 db.on('error', handleError);
 
 function handleError(data) {
