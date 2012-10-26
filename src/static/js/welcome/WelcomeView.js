@@ -44,7 +44,10 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
 
       setTimeout(function () {
         console.log('removing welcome');
-        self.close();
+        Backbone.Events.off('openWelcome', self.open, self);
+        $(window).off('resize', self.sizeWindow);
+        self.off();
+        self.remove();
       }, 1000);
     }
   })
