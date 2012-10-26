@@ -1,11 +1,11 @@
 define(
 [ './artists/ArtistListView'
 , './artists/ArtistDetailView'
-, './viewSwitcher'
+, './ViewSwitcher'
 ], function
 ( ArtistListView
 , ArtistDetailView
-, viewSwitcher
+, ViewSwitcher
 ) {
   return Backbone.Router.extend({
     routes: {
@@ -14,16 +14,16 @@ define(
       '*path': 'artistList'
     },
     initialize: function () {
-      this.viewSwitcher = viewSwitcher;
+      this.viewSwitcher = ViewSwitcher;
     },
     artistList: function () {
-      viewSwitcher.switchToView({
+      ViewSwitcher.switchToView({
         key: 'artistList',
         viewFn: ArtistListView
       });
     },
     artistDetail: function (artistSlug) {
-      viewSwitcher.switchToView({
+      ViewSwitcher.switchToView({
         key: 'artistDetail',
         viewFn: ArtistDetailView,
         renderOpts: {
