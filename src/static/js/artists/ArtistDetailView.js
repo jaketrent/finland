@@ -5,7 +5,11 @@ define(['tmpl!./artistDetail'], function (artistDetailTmpl) {
     },
     events: {
       "click .play": "playSong",
-      "click .add": "addSong"
+      "click .add": "addSong",
+      "click .card": "flipCard"
+    },
+    flipCard: function () {
+      this.$('.card').toggleClass('flipped');
     },
     render: function (settings) {
       if (settings) {

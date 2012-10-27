@@ -132,6 +132,38 @@ h1, h2, h3, h4, h5, h6
       right 4px
       image("../img/info-btn.png", 23px, 23px)
 
+  .card-container
+    width 276px
+    //height 260px
+    position relative
+    perspective 800px
+
+  .card
+    width 100%
+    height 100%
+    position absolute
+    top 0
+    left 0
+    transform-style preserve-3d
+    transition transform 1s
+
+    &.flipped
+      transform rotateY( 180deg )
+
+    .side
+      display block
+      position absolute
+      width 100%
+      height 100%
+      backface-visibility hidden
+
+      &.front
+        background red
+
+      &.back
+        background blue
+        transform rotateY( 180deg )
+
 
   .horz-bar
     background blue
@@ -170,14 +202,14 @@ h1, h2, h3, h4, h5, h6
       background-position center
 
       &.play
-        image("../img/play-btn.png", 11px, 12px);
+        image("../img/play-btn.png", 11px, 12px)
         margin 0 10px 0 10px
       &.add
-        image("../img/plus-btn.png", 12px, 11px);
+        image("../img/plus-btn.png", 12px, 11px)
         float right
         margin-right 10px
       &.download
-        image("../img/download-btn.png", 15px, 12px);
+        image("../img/download-btn.png", 15px, 12px)
         float right
         margin-right 10px
 
