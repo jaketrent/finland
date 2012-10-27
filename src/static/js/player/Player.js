@@ -105,6 +105,8 @@ define(
       if (this.currIndx < this.queue.length - 1) {
         this.incrementIndx();
         this.playCurrentInQueue();
+      } else {
+        this.$('.play-btn').removeClass('pausable');
       }
     },
     playQueuePrevious: function () {
