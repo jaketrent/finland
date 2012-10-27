@@ -296,6 +296,17 @@ h6 {
     background-size: 82px 65px;
   }
 }
+.player .play-btn.pausable {
+  background-image: url("../img/player-pause-btn.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .player .play-btn.pausable {
+    background-image: url("../img/player-pause-btn@2x.png");
+    -webkit-background-size: 82px 65px;
+    -moz-background-size: 82px 65px;
+    background-size: 82px 65px;
+  }
+}
 .player .back-btn {
   z-index: 5;
   bottom: 9px;

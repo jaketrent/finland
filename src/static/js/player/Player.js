@@ -67,6 +67,7 @@ define(
         this.aud.src = this.getCurrentSongDesc().file;
       }
       this.aud.play();
+      this.$('.play-btn').addClass('pausable');
       this.displayCurrentText();
       this.displayQueueText();
     },
@@ -98,6 +99,7 @@ define(
       } else {
         this.aud.pause();
       }
+      this.$('.play-btn').toggleClass('pausable', !(this.aud.paused || this.aud.ended));
     },
     playQueueNext: function () {
       if (this.currIndx < this.queue.length - 1) {
