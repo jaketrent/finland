@@ -137,7 +137,7 @@ h6 {
 }
 .artist-list ul {
   padding: 0;
-  margin: 0;
+  margin: 0 0 130px 0;
   list-style: none;
 }
 .artist-list ul li {
@@ -227,7 +227,7 @@ h6 {
 }
 .artist-detail .song-list {
   list-style: none;
-  margin: 20px 2% 0 2%;
+  margin: 20px 2% 130px 2%;
   padding: 0 0 20px 0;
   background: #0a88d9;
   -webkit-border-radius: 8px;
