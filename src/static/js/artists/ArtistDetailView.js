@@ -6,10 +6,10 @@ define(['tmpl!./artistDetail'], function (artistDetailTmpl) {
     events: {
       "click .play": "playSong",
       "click .add": "addSong",
-      "click .card": "flipCard"
+      "click .info": "toggleBio"
     },
-    flipCard: function () {
-      this.$('.card').toggleClass('flipped');
+    toggleBio: function () {
+      this.$('.bio').toggleClass('expanded');
     },
     render: function (settings) {
       if (settings) {

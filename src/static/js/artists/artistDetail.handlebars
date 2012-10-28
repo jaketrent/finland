@@ -7,16 +7,13 @@
   </h2>
 </header>
 <div class="artist-detail">
-  <div class="card-container">
-    <div class="card">
-      <div class="side front img-frm info">
-        <a href="#artists/{{ slug }}/info"><img src="{{ photo }}" /></a>
-      </div>
-      <div class="side back img-frm bio">
-        <p>{{ bio }}</p>
-      </div>
+  <div class="img-frm info">
+    <img src="{{ photo }}" class="img" />
+    <div class="bio">
+      <p>{{{ bio }}}</p>
     </div>
   </div>
+
   <div class="horz-bar">
     <h1>{{ name }}</h1>
   </div>
