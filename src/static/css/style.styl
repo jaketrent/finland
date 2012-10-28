@@ -94,6 +94,7 @@ h1, h2, h3, h4, h5, h6
     margin 0 0 0 17px
     color lightblue
     vertical-align middle
+    white-space no-wrap
     span
       color #fff
 
@@ -105,6 +106,10 @@ h1, h2, h3, h4, h5, h6
     background-position bottom center
     margin-bottom -4px
     image("../img/flag.png", 35px, 23px);
+
+  @media screen and (max-width: 320px)
+    .flag
+      display none
 
 .artist-list ul
   padding 0

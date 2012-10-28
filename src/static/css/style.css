@@ -114,6 +114,7 @@ h6 {
   margin: 0 0 0 17px;
   color: #add8e6;
   vertical-align: middle;
+  white-space: nowrap;
 }
 .header h2 span {
   color: #fff;
@@ -133,6 +134,11 @@ h6 {
     -webkit-background-size: 35px 23px;
     -moz-background-size: 35px 23px;
     background-size: 35px 23px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .header .flag {
+    display: none;
   }
 }
 .artist-list ul {
