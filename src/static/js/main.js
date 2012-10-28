@@ -19,6 +19,8 @@ require({
   }
 }, ['require', 'backbone', 'handlebars'], function (require) {
 
+  window.scrollTo(0,0);
+
   Backbone.View.prototype.close = function(){
     this.off();
     if (this.onClose) {

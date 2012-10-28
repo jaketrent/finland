@@ -31,6 +31,9 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
     },
     open: function () {
       var self = this;
+
+      $('.content-container').addClass('welcomed');
+
       var winHeight = $(window).height();
 
       var $top = this.$('.top');

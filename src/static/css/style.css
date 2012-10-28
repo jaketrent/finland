@@ -3,7 +3,6 @@ body {
   margin: 0;
   color: #fff;
   background: url("../img/square-mess-bg.jpg");
-  background: url("../img/vert-bar-bg.png") 25% 0 repeat-y, url("../img/square-mess-bg.jpg");
   font-family: sans-serif;
 }
 h1,
@@ -95,6 +94,10 @@ h6 {
     background-size: 13px 19px;
   }
 }
+.content-container.welcomed {
+  min-height: 640px;
+  background: url("../img/vert-bar-bg.png") 25% 0 repeat-y;
+}
 .header {
   background: url("/img/blue-weave-dark-bg.png");
   padding: 20px 0;
@@ -138,7 +141,7 @@ h6 {
   list-style: none;
 }
 .artist-list ul li {
-  margin: 7px 2%;
+  margin: 12px 2%;
   max-width: 96%;
   border: 10px solid #fff;
   -webkit-border-radius: 4px;
@@ -156,7 +159,7 @@ h6 {
   border-radius: 4px;
 }
 .artist-detail .img-frm {
-  margin: 7px 2%;
+  margin: 12px 2%;
   max-width: 96%;
   border: 10px solid #fff;
   -webkit-border-radius: 4px;
