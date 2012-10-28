@@ -22,20 +22,11 @@ h6 {
 .container img {
   max-width: 100%;
 }
-.vert-strip {
-  background: #0a88d9;
-  width: 50px;
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  left: 25%;
-  z-index: 1;
-}
 .welcome-container {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 .welcome {
   border: 1px solid #008000;
