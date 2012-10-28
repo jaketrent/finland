@@ -48,7 +48,7 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
         $(window).off('resize', self.sizeWindow);
         self.off();
         self.remove();
-      }, 1000);
+      }, 1000); // enough time for transition to complete animation
     }
   })
 });

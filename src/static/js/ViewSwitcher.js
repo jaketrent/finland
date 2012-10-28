@@ -39,8 +39,8 @@ define(['./player/Player', './artists/Artists'], function (Player, Artists) {
       if (!this.currentView) {
         setTimeout(function () {
           Backbone.Events.trigger('openWelcome');
-        }, 1500);
-        setTimeout(this.player.render, 3000);
+        }, 3000); // open welcome after user sits for a bit in awe
+        setTimeout(this.player.render, 4000); // render player after welcome gone
 //        this.player.render();
       }
     },
