@@ -408,6 +408,11 @@ h6 {
   text-align: right;
   color: #ababab;
 }
+@media screen and (min-width: 590px) {
+  .artist-list ul li {
+    display: inline-block;
+  }
+}
 .admin-pg {
   background: #272b30;
 }
