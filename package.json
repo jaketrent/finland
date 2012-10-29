@@ -11,7 +11,8 @@
     "stylus": "0.29.x",
     "mongoose": "3.1.x",
     "underscore": "1.4.x",
-    "qs": "0.5.x"
+    "qs": "0.5.x",
+    "mime-component": "0.0.x"
   },
   "engines": {
     "node": "0.8.x",

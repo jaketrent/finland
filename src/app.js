@@ -34,6 +34,7 @@ app.configure('production', function () {
 var authRt = require('./routes/auth')(app);
 var adminRt = require('./routes/admin')(app);
 var artistRt = require('./routes/artist')(app);
+var musicRt = require('./routes/music')(app);
 var partialRt = require('./routes/partial')(app);
 var mainRt = require('./routes/main')(app);
 var errorRt = require('./routes/error')(app);
