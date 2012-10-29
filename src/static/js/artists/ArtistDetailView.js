@@ -24,7 +24,9 @@ define(['tmpl!./artistDetail'], function (artistDetailTmpl) {
       this.$el.html(artistDetailTmpl(this.artist.toJSON()));
     },
     playSong: function (evt) {
-      var indx = $('.play').index($(evt.currentTarget));
+      var $target = $(evt.currentTarget);
+      var playSel = $target.hasClass('icon') ? '.play.icon' : '.play.title';
+      var indx = $(playSel).index($target);
       Backbone.Events.trigger('playSong', this.artist, indx);
       evt.preventDefault();
     },

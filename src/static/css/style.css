@@ -139,10 +139,10 @@ h6 {
   }
 }
 @media screen and (max-width: 320px) {
-  .header .header h2 {
+  .header h2 {
     text-align: center;
   }
-  .header .header .flag {
+  .header .flag {
     display: none;
   }
 }
@@ -306,6 +306,9 @@ h6 {
     background-size: 15px 12px;
   }
 }
+.artist-detail .song-list .title {
+  cursor: pointer;
+}
 .player {
   position: fixed;
   z-index: 2;
@@ -316,6 +319,10 @@ h6 {
   background-repeat: no-repeat;
   background-position: left bottom;
   background-image: url("../img/player-bg.png");
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .player {
