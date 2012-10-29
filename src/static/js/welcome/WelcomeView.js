@@ -32,7 +32,7 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
     open: function () {
       var self = this;
 
-      $('.content-container').addClass('welcomed');
+      $('body').addClass('welcomed');
 
       var winHeight = $(window).height();
 

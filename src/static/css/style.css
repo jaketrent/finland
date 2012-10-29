@@ -5,6 +5,11 @@ body {
   background: url("../img/square-mess-bg.jpg");
   font-family: sans-serif;
 }
+body.welcomed {
+  min-height: 640px;
+  background: url("../img/square-mess-bg.jpg");
+  background: url("../img/vert-bar-bg.png") 25% 0 repeat-y, url("../img/square-mess-bg.jpg");
+}
 h1,
 h2,
 h3,
@@ -93,10 +98,6 @@ h6 {
     -moz-background-size: 13px 19px;
     background-size: 13px 19px;
   }
-}
-.content-container.welcomed {
-  min-height: 640px;
-  background: url("../img/vert-bar-bg.png") 25% 0 repeat-y;
 }
 .header {
   background: url("/img/blue-weave-dark-bg.png");
