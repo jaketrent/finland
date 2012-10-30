@@ -46,9 +46,20 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
       $top.addClass('transitional');
       $bottom.addClass('transitional');
 
-      // todo: handle other vendors
-      $top.attr('style', $top.attr('style') + ' -webkit-transform: translate(0,' + (-1 * (winHeight / 2)) + 'px)');
-      $bottom.attr('style', $bottom.attr('style') + ' -webkit-transform: translate(0,' + (winHeight / 2) + 'px)');
+      var topPx = (-1 * (winHeight / 2));
+      var botPx = (winHeight / 2);
+      $top.attr('style', $top.attr('style')
+        + ' -webkit-transform: translate(0,' + topPx + 'px);'
+        + ' -moz-transform: translate(0,' + topPx + 'px);'
+        + ' -o-transform: translate(0,' + topPx + 'px);'
+        + ' -ms-transform: translate(0,' + topPx + 'px);'
+        + ' transform: translate(0,' + topPx + 'px);');
+      $bottom.attr('style', $bottom.attr('style')
+        + ' -webkit-transform: translate(0,' + botPx + 'px);'
+        + ' -moz-transform: translate(0,' + botPx + 'px);'
+        + ' -o-transform: translate(0,' + botPx + 'px);'
+        + ' -ms-transform: translate(0,' + botPx + 'px);'
+        + ' transform: translate(0,' + botPx + 'px);');
 
       setTimeout(function () {
         Backbone.Events.off('openWelcome', self.open, self);
