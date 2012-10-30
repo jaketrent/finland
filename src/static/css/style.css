@@ -309,6 +309,9 @@ h6 {
 .artist-detail .song-list .title {
   cursor: pointer;
 }
+.artist-detail .song-list .title.first {
+  margin-left: 10px;
+}
 .player {
   position: fixed;
   z-index: 2;

@@ -8,21 +8,25 @@
 </header>
 <div class="artist-detail">
   <div class="img-frm info">
-    <img src="{{ photo }}" class="img" />
+    <img src="{{ model.photo }}" class="img" />
     <div class="bio">
-      <p>{{{ bio }}}</p>
+      <p>{{{ model.bio }}}</p>
     </div>
   </div>
 
   <div class="horz-bar">
-    <h1>{{ name }}</h1>
+    <h1>{{ model.name }}</h1>
   </div>
   <ul class="song-list">
-    {{#each songs}}
+    {{#each model.songs}}
       <li>
-        <a href="#" class="icon play">Play</a>
-        <span class="play title">{{ title }}</span>
-        <a href="#" class="icon add">Add to Playlist</a>
+        {{#if canPlayAudio}}
+          <a href="#" class="icon play">Play</a>
+          <span class="play title">{{ title }}</span>
+          <a href="#" class="icon add">Add to Playlist</a>
+        {{else}}
+          <span class="title first">{{ title }}</span>
+        {{/if}}
         <a href="/download{{ file }}" class="icon download">Download</a>
       </li>
     {{/each}}

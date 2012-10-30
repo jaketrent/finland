@@ -1,4 +1,4 @@
-define(['tmpl!./artistDetail'], function (artistDetailTmpl) {
+define(['tmpl!./artistDetail', '../audioDetector'], function (artistDetailTmpl, audioDetector) {
   return Backbone.View.extend({
     initialize: function () {
       this.artists = this.options.artists;
@@ -21,7 +21,10 @@ define(['tmpl!./artistDetail'], function (artistDetailTmpl) {
           return artist.get('slug') === self.artistSlug;
         });
       })();
-      this.$el.html(artistDetailTmpl(this.artist.toJSON()));
+      this.$el.html(artistDetailTmpl({
+        model: this.artist.toJSON(),
+        canPlayAudio: audioDetector.canPlayAudio()
+      }));
     },
     playSong: function (evt) {
       var $target = $(evt.currentTarget);

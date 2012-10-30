@@ -3,9 +3,11 @@
 define(
 [ 'tmpl!./player'
 , 'tmpl!./text'
+, './../audioDetector'
 ], function
 ( playerTmpl
 , textTmpl
+, audioDetector
 ) {
   return Backbone.View.extend({
     initialize: function () {
@@ -101,7 +103,9 @@ define(
       this.displayQueueText();
     },
     render: function () {
-      this.$el.html(playerTmpl());
+      if (audioDetector.canPlayAudio()) {
+        this.$el.html(playerTmpl());
+      }
     },
     mkSongDesc: function (artist, indx) {
       var song = artist.get('songs')[indx];
