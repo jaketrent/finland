@@ -141,6 +141,7 @@ h6 {
 @media screen and (max-width: 320px) {
   .header h2 {
     text-align: center;
+    margin: 0;
   }
   .header .flag {
     display: none;

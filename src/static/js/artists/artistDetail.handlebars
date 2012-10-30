@@ -20,7 +20,7 @@
   <ul class="song-list">
     {{#each model.songs}}
       <li>
-        {{#if canPlayAudio}}
+        {{#if ../canPlayAudio}}
           <a href="#" class="icon play">Play</a>
           <span class="play title">{{ title }}</span>
           <a href="#" class="icon add">Add to Playlist</a>
