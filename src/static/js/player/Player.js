@@ -62,7 +62,6 @@ define(
         "canplaythrough": "",
         "default": ""
       };
-      console.log(evt);
       this.$('.song-status').html(msgs[type]);
     },
     updateCurrentDuration: function () {
