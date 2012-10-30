@@ -1,8 +1,13 @@
 define(['tmpl!./welcome'], function (welcomeTmpl) {
   return Backbone.View.extend({
     initialize: function () {
+      _.bindAll(this, 'open');
       Backbone.Events.on('openWelcome', this.open, this);
       $(window).on('resize', this.sizeWindow);
+      $(window).one('scroll', this.open);
+    },
+    events: {
+      'click': 'open'
     },
     sizeWindow: function () {
       var winHeight = $(window).height();
@@ -46,9 +51,9 @@ define(['tmpl!./welcome'], function (welcomeTmpl) {
       $bottom.attr('style', $bottom.attr('style') + ' -webkit-transform: translate(0,' + (winHeight / 2) + 'px)');
 
       setTimeout(function () {
-        console.log('removing welcome');
         Backbone.Events.off('openWelcome', self.open, self);
         $(window).off('resize', self.sizeWindow);
+        $(window).off('scroll', self.open);
         self.off();
         self.remove();
       }, 1000); // enough time for transition to complete animation
