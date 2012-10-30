@@ -29,10 +29,12 @@ define(
     },
     insertQueue: function (songDesc) {
       this.queue.splice(this.currIndx + 1, 0, songDesc);
+      this.$('.btn').removeClass('disabled');
       this.displayQueueText();
     },
     appendQueue: function (songDesc) {
       this.queue.push(songDesc);
+      this.$('.btn').removeClass('disabled');
       this.displayQueueText();
     },
     updateCurrentDuration: function () {

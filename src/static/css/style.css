@@ -338,6 +338,11 @@ h6 {
   background-repeat: no-repeat;
   background-position: center;
 }
+.player .btn.disabled {
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+}
 .player .play-btn {
   z-index: 6;
   bottom: 39px;
