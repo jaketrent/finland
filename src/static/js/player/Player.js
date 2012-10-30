@@ -9,12 +9,23 @@ define(
 ) {
   return Backbone.View.extend({
     initialize: function () {
-      _.bindAll(this, 'render', 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint', 'togglePlayQueueCurrent', 'playQueuePrevious', 'playQueueNext');
+      _.bindAll(this, 'render', 'displayCurrentText', 'updateCurrentDuration', 'updateCurrentTimePoint', 'togglePlayQueueCurrent', 'playQueuePrevious', 'playQueueNext', 'updateSongStatus');
       Backbone.Events.on('playSong', this.playSong, this);
       Backbone.Events.on('addSong', this.addSong, this);
       this.browserSupportsAudio = window.Audio != undefined;
       if (this.browserSupportsAudio) {
         this.aud = new Audio();
+
+        this.aud.addEventListener('loadstart', this.updateSongStatus);
+        this.aud.addEventListener('progress', this.updateSongStatus);
+        this.aud.addEventListener('suspend', this.updateSongStatus);
+        this.aud.addEventListener('abort', this.updateSongStatus);
+        this.aud.addEventListener('error', this.updateSongStatus);
+        this.aud.addEventListener('stalled', this.updateSongStatus);
+        this.aud.addEventListener('loadeddata', this.updateSongStatus);
+        this.aud.addEventListener('waiting', this.updateSongStatus);
+        this.aud.addEventListener('canplaythrough', this.updateSongStatus);
+
         this.aud.addEventListener('loadedmetadata', this.updateCurrentDuration);
         this.aud.addEventListener('timeupdate', this.updateCurrentTimePoint);
         this.aud.addEventListener('ended', this.playQueueNext);
@@ -36,6 +47,23 @@ define(
       this.queue.push(songDesc);
       this.$('.btn').removeClass('disabled');
       this.displayQueueText();
+    },
+    updateSongStatus: function (evt) {
+      var type = evt && evt.type ? evt.type : 'default';
+      var msgs = {
+        "loadstart": "Loading...",
+        "progress": "Buffering...",
+        "suspend": "", // has enough, not seeking
+        "abort": "Aborted",
+        "error": "Error",
+        "stalled": "Buffering...",
+        "loadeddata": "",
+        "waiting": "Buffering...",
+        "canplaythrough": "",
+        "default": ""
+      };
+      console.log(evt);
+      this.$('.song-status').html(msgs[type]);
     },
     updateCurrentDuration: function () {
       var time = this.secsToDisplayTime(this.aud.seekable.end(0));
