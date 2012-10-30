@@ -106,6 +106,7 @@ define(
         this.incrementIndx();
         this.playCurrentInQueue();
       } else {
+        this.aud.pause();
         this.$('.play-btn').removeClass('pausable');
       }
     },
