@@ -126,15 +126,16 @@ define(
       this.appendQueue(songDesc);
       console.log(this.queue);
     },
-    togglePlayQueueCurrent: function () {
+    togglePlayQueueCurrent: function (evt) {
       if (this.aud.paused || this.aud.ended) {
         this.playCurrentInQueue(true);
       } else {
         this.aud.pause();
       }
       this.$('.play-btn').toggleClass('pausable', !(this.aud.paused || this.aud.ended));
+      evt.preventDefault();
     },
-    playQueueNext: function () {
+    playQueueNext: function (evt) {
       if (this.currIndx < this.queue.length - 1) {
         this.incrementIndx();
         this.playCurrentInQueue();
@@ -142,12 +143,14 @@ define(
         this.aud.pause();
         this.$('.play-btn').removeClass('pausable');
       }
+      evt.preventDefault();
     },
-    playQueuePrevious: function () {
+    playQueuePrevious: function (evt) {
       if (this.currIndx > 0) {
         this.decrementIndx();
         this.playCurrentInQueue();
       }
+      evt.preventDefault();
     },
     incrementIndx: function () {
       this.addToIndx(1);
