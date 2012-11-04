@@ -4,10 +4,39 @@
     <span class="flag"></span>
   </h2>
 </header>
-<div class="artist-list">
-  <ul>
-    {{#each this}}
-      <li><a href="#artists/{{ slug }}"><img src="{{ photo }}" class="img" /></a></li>
-    {{/each}}
+<div class="artist-detail">
+
+  <div class="img-frm intro">
+    Listen to the music...
+  </div>
+
+  {{#each artists}}
+    <div class="img-frm info">
+      <img src="{{ photo }}" class="img" />
+      <div class="bio">
+        <p>{{{ bio }}}</p>
+      </div>
+    </div>
+  {{/each}}
+
+  <div class="horz-bar">
+    <h1>Welcome</h1>
+  </div>
+
+  <ul class="content-area">
+    <li class="snippet">
+      <p>
+        The Finnish Music Project is meant to provide quality, upliftings songs to Finns in the their native language.
+      </p>
+      <p>
+        There is a short supply of recordings such as these.  As a musical people, Latter-day Saints, or Mormons,
+        find great joy in listening to hymns and other sacred music.  To hear this type of music in one's own language
+        is all the better.  Sacred music expresses the desires of heart to be closer to God.  In the same way, this music
+        can share God's love and inspiration with us.
+      </p>
+      <p>
+        We hope you enjoy the wonderful recordings shared through this project.
+      </p>
+    </li>
   </ul>
 </div>

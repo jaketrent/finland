@@ -42,10 +42,12 @@ require({
     $(window).on('resize', sizeWindow);
     sizeWindow();
 
+/*
     var welcomeView = new WelcomeView({
       el: $('.welcome-container')
     });
     welcomeView.render();
+*/
 
     var router = new Router();
     Backbone.history.start();

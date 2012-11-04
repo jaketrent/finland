@@ -4,7 +4,9 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       this.artists = this.options.artists;
     },
     render: function () {
-      this.$el.html(artistListTmpl(this.artists.toJSON()));
+      this.$el.html(artistListTmpl({
+        artists: this.artists.toJSON()
+      }));
     }
   });
 });

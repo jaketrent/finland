@@ -207,6 +207,10 @@ h6 {
     background-size: 23px 23px;
   }
 }
+.artist-detail .img-frm.intro {
+  color: #0a88d9;
+  text-align: right;
+}
 .artist-detail .bio {
   height: 0;
   line-height: 0;
@@ -237,7 +241,7 @@ h6 {
   text-align: right;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
-.artist-detail .song-list {
+.artist-detail .content-area {
   list-style: none;
   margin: 20px 2% 130px 2%;
   padding: 0;
@@ -246,7 +250,7 @@ h6 {
   border-radius: 8px;
   background: url("../img/blue-weave-bg.png");
 }
-.artist-detail .song-list li {
+.artist-detail .content-area li {
   line-height: 30px;
   padding: 3px 5px;
   overflow: hidden;
@@ -254,13 +258,13 @@ h6 {
   border-top: 1px solid #45bdf9;
   text-shadow: -1px -1px 1px rgba(0,0,0,0.6);
 }
-.artist-detail .song-list li:first-child {
+.artist-detail .content-area li:first-child {
   border-top: none;
 }
-.artist-detail .song-list li:last-child {
+.artist-detail .content-area li:last-child {
   border-bottom: none;
 }
-.artist-detail .song-list .icon {
+.artist-detail .content-area .icon {
   display: inline-block;
   height: 30px;
   width: 30px;
@@ -269,48 +273,48 @@ h6 {
   background-repeat: no-repeat;
   background-position: center;
 }
-.artist-detail .song-list .icon.play {
+.artist-detail .content-area .icon.play {
   background-image: url("../img/play-btn.png");
   margin: 0 10px 0 10px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .artist-detail .song-list .icon.play {
+  .artist-detail .content-area .icon.play {
     background-image: url("../img/play-btn@2x.png");
     -webkit-background-size: 11px 12px;
     -moz-background-size: 11px 12px;
     background-size: 11px 12px;
   }
 }
-.artist-detail .song-list .icon.add {
+.artist-detail .content-area .icon.add {
   background-image: url("../img/plus-btn.png");
   float: right;
   margin-right: 10px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .artist-detail .song-list .icon.add {
+  .artist-detail .content-area .icon.add {
     background-image: url("../img/plus-btn@2x.png");
     -webkit-background-size: 12px 11px;
     -moz-background-size: 12px 11px;
     background-size: 12px 11px;
   }
 }
-.artist-detail .song-list .icon.download {
+.artist-detail .content-area .icon.download {
   background-image: url("../img/download-btn.png");
   float: right;
   margin-right: 10px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .artist-detail .song-list .icon.download {
+  .artist-detail .content-area .icon.download {
     background-image: url("../img/download-btn@2x.png");
     -webkit-background-size: 15px 12px;
     -moz-background-size: 15px 12px;
     background-size: 15px 12px;
   }
 }
-.artist-detail .song-list .title {
+.artist-detail .content-area .title {
   cursor: pointer;
 }
-.artist-detail .song-list .title.first {
+.artist-detail .content-area .title.first {
   margin-left: 10px;
 }
 .player {
