@@ -6,18 +6,22 @@
 </header>
 <div class="artist-detail">
 
-  <div class="img-frm intro">
-    Listen to the music...
-  </div>
+  <div class="deck">
 
-  {{#each artists}}
-    <div class="img-frm info">
-      <img src="{{ photo }}" class="img" />
-      <div class="bio">
-        <p>{{{ bio }}}</p>
-      </div>
+    <div class="card intro center">
+      Listen to the music &gt;
     </div>
-  {{/each}}
+
+    {{#each artists}}
+      <div class="card artist info after">
+        <img src="{{ photo }}" class="img" />
+        <div class="bio">
+          <p>{{{ bio }}}</p>
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
 
   <div class="horz-bar">
     <h1>Welcome</h1>

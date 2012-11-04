@@ -129,10 +129,20 @@ h1, h2, h3, h4, h5, h6
       border-radius 4px
 
 .artist-detail
-  .img-frm
-    photoish()
-    margin 20px 2%
+
+  .deck
     position relative
+    height 136px
+    background lightBlue
+    overflow hidden
+
+  .card
+    photoish()
+    position absolute
+    top 0
+    left 0
+    height 96px
+    margin 20px 2%
 
     &.info
       cursor pointer
@@ -150,6 +160,7 @@ h1, h2, h3, h4, h5, h6
     &.intro
       color blue
       text-align right
+      line-height 96px
 
   .bio
     height 0
