@@ -13,18 +13,15 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       this.translateX($centerCard, {
         fromClzz: 'onstage',
         toClzz: 'offstage',
-        multiplier: -1,
-        translatePx: winWidth,
-        doneMultiplier: 1,
-        doneTranslatePx: winWidth
+        xPx: -1 * winWidth,
+        doneXpx: winWidth
       });
 
       var $nextCard = this.$cards.eq(this.onStage + 1);
       this.translateX($nextCard, {
         fromClzz: 'offstage',
         toClzz: 'onstage',
-        multiplier: 1,
-        translatePx: 0
+        xPx: 0
       });
 
       if (this.onStage === this.$cards.length - 1) {
@@ -33,8 +30,7 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
         this.translateX($reQueuedFirstCard, {
           fromClzz: 'offstage',
           toClzz: 'onstage',
-          multiplier: 1,
-          translatePx: 0
+          xPx: 0
         });
       } else {
         ++this.onStage;
@@ -54,22 +50,21 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       var $offstages = this.$cards.filter('.offstage');
       var winWidth = $(window).width();
       this.translateX($offstages, {
-        multiplier: 1,
-        translatePx: winWidth
+        xPx: winWidth
       });
     },
     translateX: function ($el, settings) {
       if (settings.fromClzz && settings.toClzz) {
         $el.removeClass(settings.fromClzz).addClass(settings.toClzz);
       }
-      this.setXTransform($el, settings.multiplier, settings.translatePx, settings.doneMultiplier, settings.doneTranslatePx);
+      this.setXTransform($el, settings.xPx, settings.doneXpx);
     },
-    setXTransform: function ($el, multiplier, Xpx, doneMultiplier, doneXpx) {
+    setXTransform: function ($el, Xpx, doneXpx) {
       var self = this;
-      this.setTransformStyle($el, (multiplier * Xpx));
-      if (doneMultiplier && doneXpx) {
+      this.setTransformStyle($el, Xpx);
+      if (doneXpx) {
         setTimeout(function () {
-          self.setTransformStyle($el, (doneMultiplier * doneXpx));
+          self.setTransformStyle($el, doneXpx);
         }, 301); // after transition
       }
     },
