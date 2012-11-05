@@ -31,6 +31,9 @@ h1, h2, h3, h4, h5, h6
   &.fast
     transition all 300ms linear
 
+.offstage
+  opacity 0 !important
+
 .welcome-container
   position absolute
   top 0
@@ -166,9 +169,6 @@ h1, h2, h3, h4, h5, h6
       text-align right
       line-height 96px
 
-    &.offstage
-      opacity 0
-
   .bio
     height 0
     line-height 0
@@ -184,9 +184,16 @@ h1, h2, h3, h4, h5, h6
 
   .horz-bar
     background blue
-    padding 10px 2%
+    position relative
+    overflow hidden
+    height 52px;
     h1
+      position absolute
+      top 0
+      left 0
+      right 0
       margin 0
+      padding 10px 2%
       text-align right
       text-shadow 1px 1px 2px rgba(0,0,0,.5)
 

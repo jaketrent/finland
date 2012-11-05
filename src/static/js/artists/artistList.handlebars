@@ -24,7 +24,11 @@
   </div>
 
   <div class="horz-bar">
-    <h1>Welcome</h1>
+    <h1 class="name intro transitional fast onstage">Welcome</h1>
+
+    {{#each artists}}
+      <h1 class="name artist transitional fast offstage">{{ name }}</h1>
+    {{/each}}
   </div>
 
   <ul class="content-area">

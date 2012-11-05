@@ -10,18 +10,32 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       var winWidth = $(window).width();
 
       var $centerCard = this.$cards.eq(this.onStage);
-      $centerCard.removeClass('onstage').addClass('offstage');
-      this.setXTransform($centerCard, -1, winWidth, 1, winWidth);
+      this.translateX($centerCard, {
+        fromClzz: 'onstage',
+        toClzz: 'offstage',
+        multiplier: -1,
+        translatePx: winWidth,
+        doneMultiplier: 1,
+        doneTranslatePx: winWidth
+      });
 
       var $nextCard = this.$cards.eq(this.onStage + 1);
-      $nextCard.removeClass('offstage').addClass('onstage');
-      this.setXTransform($nextCard, 1, 0);
+      this.translateX($nextCard, {
+        fromClzz: 'offstage',
+        toClzz: 'onstage',
+        multiplier: 1,
+        translatePx: 0
+      });
 
       if (this.onStage === this.$cards.length - 1) {
         this.onStage = 0;
         var $reQueuedFirstCard = this.$cards.eq(this.onStage);
-        $reQueuedFirstCard.removeClass('offstage').addClass('onstage');
-        this.setXTransform($reQueuedFirstCard, 1, 0);
+        this.translateX($reQueuedFirstCard, {
+          fromClzz: 'offstage',
+          toClzz: 'onstage',
+          multiplier: 1,
+          translatePx: 0
+        });
       } else {
         ++this.onStage;
       }
@@ -33,12 +47,22 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       }));
 
       this.$cards = this.$('.card');
+      this.$names = this.$('.name');
       this.onStage = 0;
 
       // put 'offstage' on rhs of the screen
-      var $offstage = this.$cards.filter('.offstage');
+      var $offstages = this.$cards.filter('.offstage');
       var winWidth = $(window).width();
-      this.setXTransform($offstage, 1, winWidth);
+      this.translateX($offstages, {
+        multiplier: 1,
+        translatePx: winWidth
+      });
+    },
+    translateX: function ($el, settings) {
+      if (settings.fromClzz && settings.toClzz) {
+        $el.removeClass(settings.fromClzz).addClass(settings.toClzz);
+      }
+      this.setXTransform($el, settings.multiplier, settings.translatePx, settings.doneMultiplier, settings.doneTranslatePx);
     },
     setXTransform: function ($el, multiplier, Xpx, doneMultiplier, doneXpx) {
       var self = this;
