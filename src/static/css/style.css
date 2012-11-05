@@ -178,7 +178,7 @@ h6 {
 }
 .artist-detail .deck {
   position: relative;
-  height: 136px;
+  height: 156px;
   overflow: hidden;
 }
 .artist-detail .card {
@@ -229,8 +229,7 @@ h6 {
   text-align: right;
   line-height: 96px;
 }
-.artist-detail .card.before,
-.artist-detail .card.after {
+.artist-detail .card.offstage {
   opacity: 0;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   filter: alpha(opacity=0);

@@ -6,46 +6,25 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
     events: {
       'click .card': 'advanceCard'
     },
-    advanceCard: function (evt) {
-      var self = this;
-      var $centerCard = $(evt.currentTarget);
+    advanceCard: function () {
       var winWidth = $(window).width();
-      var movedLastCardToBefore = false;
 
-      $centerCard.removeClass('center').addClass('before');
-      var $nextCard = this.$('.card.after').eq(0);
+      var $centerCard = this.$cards.eq(this.onStage);
+      $centerCard.removeClass('onstage').addClass('offstage');
+      this.setXTransform($centerCard, -1, winWidth, 1, winWidth);
 
-      // put all cards back in queue
-      if ($nextCard.length === 0) {
-
-        movedLastCardToBefore = true;
-        var $befores = this.$('.card.before');
-        $befores.removeClass('before').addClass('after');
-        this.setXTransform($befores, 1, winWidth);
-
-        // re-enable animation
-        var $afters = this.$('.card.after');
-
-        // re-find next card
-        $nextCard = $afters.eq(0);
-      }
-
-      $nextCard.removeClass('after').addClass('center');
-
-      if (movedLastCardToBefore) {
-
-        // after transition ended
-        setTimeout(function () {
-
-          // re-put on right hand side
-          self.setXTransform($centerCard, 1, winWidth);
-        }, 301);
-
-      }
-
-      this.setXTransform($centerCard, -1, winWidth);
+      var $nextCard = this.$cards.eq(this.onStage + 1);
+      $nextCard.removeClass('offstage').addClass('onstage');
       this.setXTransform($nextCard, 1, 0);
 
+      if (this.onStage === this.$cards.length - 1) {
+        this.onStage = 0;
+        var $reQueuedFirstCard = this.$cards.eq(this.onStage);
+        $reQueuedFirstCard.removeClass('offstage').addClass('onstage');
+        this.setXTransform($reQueuedFirstCard, 1, 0);
+      } else {
+        ++this.onStage;
+      }
     },
     render: function () {
       var self = this;
@@ -55,23 +34,34 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
 
       // put 'after' on rhs of the screen
       this.$cards = this.$('.card');
-      var $afters = this.$cards.filter('.after');
+      this.onStage = 0;
+
+      var $offstage = this.$cards.filter('.offstage');
       var winWidth = $(window).width();
-      this.setXTransform($afters, 1, winWidth);
+      this.setXTransform($offstage, 1, winWidth);
 
       // leave time for card style to be set and painted off screen right before turning on animation
       setTimeout(function () {
         self.$cards.addClass('transitional fast');
       }, 1);
     },
-    setXTransform: function ($el, multiplier, Xpx) {
-      var direction = (multiplier * Xpx);
+    setXTransform: function ($el, multiplier, Xpx, doneMultiplier, doneXpx) {
+      var self = this;
+      this.setTransformStyle($el, (multiplier * Xpx));
+      if (doneMultiplier && doneXpx) {
+        setTimeout(function () {
+          self.setTransformStyle($el, (doneMultiplier * doneXpx));
+        }, 301); // after transition
+      }
+    },
+    setTransformStyle: function ($el, px) {
       $el.attr('style',
-          ' -webkit-transform: translate(' + direction + 'px, 0);'
-        + ' -moz-transform: translate(' + direction + 'px, 0);'
-        + ' -o-transform: translate(' + direction + 'px, 0);'
-        + ' -ms-transform: translate(' + direction + 'px, 0);'
-        + ' transform: translate(' + direction + 'px, 0);');
+          ' -webkit-transform: translate(' + px + 'px, 0);'
+        + ' -moz-transform: translate(' + px + 'px, 0);'
+        + ' -o-transform: translate(' + px + 'px, 0);'
+        + ' -ms-transform: translate(' + px + 'px, 0);'
+        + ' transform: translate(' + px + 'px, 0);');
     }
+
   });
 });
