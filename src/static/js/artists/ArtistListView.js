@@ -39,11 +39,6 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       var $offstage = this.$cards.filter('.offstage');
       var winWidth = $(window).width();
       this.setXTransform($offstage, 1, winWidth);
-
-      // leave time for card style to be set and painted off screen right before turning on animation
-      setTimeout(function () {
-        self.$cards.addClass('transitional fast');
-      }, 1);
     },
     setXTransform: function ($el, multiplier, Xpx, doneMultiplier, doneXpx) {
       var self = this;
