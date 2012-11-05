@@ -4,37 +4,43 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
       this.artists = this.options.artists;
     },
     events: {
-      'click .card': 'advanceCard'
+      'click .card': 'advance',
+      'click .name': 'advance'
     },
-    advanceCard: function () {
+    advance: function () {
+      this.cardIndx = this.advanceObj(this.$cards, this.cardIndx);
+      this.nameIndx = this.advanceObj(this.$names, this.nameIndx);
+    },
+    advanceObj: function ($el, indx) {
       var winWidth = $(window).width();
 
-      var $centerCard = this.$cards.eq(this.onStage);
-      this.translateX($centerCard, {
+      var $center = $el.eq(indx);
+      this.translateX($center, {
         fromClzz: 'onstage',
         toClzz: 'offstage',
         xPx: -1 * winWidth,
         doneXpx: winWidth
       });
 
-      var $nextCard = this.$cards.eq(this.onStage + 1);
-      this.translateX($nextCard, {
+      var $next = $el.eq(indx + 1);
+      this.translateX($next, {
         fromClzz: 'offstage',
         toClzz: 'onstage',
         xPx: 0
       });
 
-      if (this.onStage === this.$cards.length - 1) {
-        this.onStage = 0;
-        var $reQueuedFirstCard = this.$cards.eq(this.onStage);
-        this.translateX($reQueuedFirstCard, {
+      if (indx === $el.length - 1) {
+        indx = 0;
+        var $reQueuedFirst = $el.eq(indx);
+        this.translateX($reQueuedFirst, {
           fromClzz: 'offstage',
           toClzz: 'onstage',
           xPx: 0
         });
       } else {
-        ++this.onStage;
+        ++indx;
       }
+      return indx;
     },
     render: function () {
       var self = this;
@@ -44,7 +50,8 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
 
       this.$cards = this.$('.card');
       this.$names = this.$('.name');
-      this.onStage = 0;
+      this.cardIndx = 0;
+      this.nameIndx = 0;
 
       // put 'offstage' on rhs of the screen
       var $offstages = this.$cards.filter('.offstage');
