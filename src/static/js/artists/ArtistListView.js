@@ -32,10 +32,10 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
         artists: this.artists.toJSON()
       }));
 
-      // put 'after' on rhs of the screen
       this.$cards = this.$('.card');
       this.onStage = 0;
 
+      // put 'offstage' on rhs of the screen
       var $offstage = this.$cards.filter('.offstage');
       var winWidth = $(window).width();
       this.setXTransform($offstage, 1, winWidth);
