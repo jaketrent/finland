@@ -272,7 +272,6 @@ h6 {
   background: #0a88d9;
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  background: url("../img/blue-weave-bg.png");
 }
 .artist-detail .content-area li {
   line-height: 30px;
@@ -287,6 +286,12 @@ h6 {
 }
 .artist-detail .content-area li:last-child {
   border-bottom: none;
+}
+.artist-detail .content-area li.snippet {
+  padding: 0 4% 0 4%;
+}
+.artist-detail .content-area li.snippet p {
+  line-height: 1em;
 }
 .artist-detail .content-area .icon {
   display: inline-block;
