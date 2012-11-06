@@ -143,7 +143,9 @@ define(
         this.aud.pause();
         this.$('.play-btn').removeClass('pausable');
       }
-      evt.preventDefault();
+      if (evt) {
+        evt.preventDefault();
+      }
     },
     playQueuePrevious: function (evt) {
       if (this.currIndx > 0) {

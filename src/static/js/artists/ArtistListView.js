@@ -4,8 +4,11 @@ define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistL
       this.artists = this.options.artists;
     },
     events: {
-      'click .card': 'advance',
-      'click .name': 'advance'
+      "click .card": "advance",
+      "click .name": "advance",
+      "click .play": "playSong",
+      "click .add": "addSong"
+//      "click .info": "toggleBio"
     },
     advance: function () {
       this.cardIndx = this.advanceObj(this.$cards, this.cardIndx);
@@ -86,6 +89,24 @@ define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistL
         + ' -o-transform: translate(' + px + 'px, 0);'
         + ' -ms-transform: translate(' + px + 'px, 0);'
         + ' transform: translate(' + px + 'px, 0);');
+    },
+    getCurrentArtist: function () {
+      return this.artists.at(this.cardIndx - 1); // minus one for welcome card
+    },
+    toggleBio: function () {
+      this.$('.bio').toggleClass('expanded');
+    },
+    playSong: function (evt) {
+      var $targetRow = $(evt.currentTarget).closest('.song');
+      var indx = $targetRow.parent().children('.song').index($targetRow);
+      Backbone.Events.trigger('playSong', this.getCurrentArtist(), indx);
+      evt.preventDefault();
+    },
+    addSong: function (evt) {
+      var $targetRow = $(evt.currentTarget).closest('.song');
+      var indx = $targetRow.parent().children('.song').index($targetRow);
+      Backbone.Events.trigger('addSong', this.getCurrentArtist(), indx);
+      evt.preventDefault();
     }
 
   });
