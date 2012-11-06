@@ -230,10 +230,18 @@ h6 {
     background-size: 23px 23px;
   }
 }
-.artist-detail .card.intro {
-  color: #0a88d9;
-  text-align: right;
-  line-height: 96px;
+.artist-detail .card.intro .img {
+  height: 93px;
+  width: 276px;
+  background-image: url("../img/finland-small-banner.png");
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .artist-detail .card.intro .img {
+    background-image: url("../img/finland-small-banner@2x.png");
+    -webkit-background-size: 276px 93px;
+    -moz-background-size: 276px 93px;
+    background-size: 276px 93px;
+  }
 }
 .artist-detail .bio {
   height: 0;
