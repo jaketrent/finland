@@ -17,13 +17,13 @@ define(
       this.viewSwitcher = ViewSwitcher;
     },
     artistList: function () {
-      ViewSwitcher.switchToView({
+      this.viewSwitcher.switchToView({
         key: 'artistList',
         viewFn: ArtistListView
       });
     },
     artistDetail: function (artistSlug) {
-      ViewSwitcher.switchToView({
+      this.viewSwitcher.switchToView({
         key: 'artistDetail',
         viewFn: ArtistDetailView,
         renderOpts: {
