@@ -31,20 +31,39 @@
     {{/each}}
   </div>
 
-  <ul class="content-area">
-    <li class="snippet">
-      <p>
-        The Finnish Music Project is meant to provide quality, uplifting songs to Finns in the their native language.
-      </p>
-      <p>
-        There is a short supply of recordings such as these.  As a musical people, Latter-day Saints, or Mormons,
-        find great joy in listening to hymns and other sacred music.  To hear this type of music in one's own language
-        is all the better.  Sacred music expresses the desires of heart to be closer to God.  In the same way, this music
-        can share God's love and inspiration with us.
-      </p>
-      <p>
-        We hope you enjoy the wonderful recordings shared through this project.
-      </p>
-    </li>
-  </ul>
+  <div class="content-wrapper">
+    <ul class="content-area transitional fast onstage">
+      <li class="snippet">
+        <p>
+          The Finnish Music Project is meant to provide quality, uplifting songs to Finns in the their native language.
+        </p>
+        <p>
+          There is a short supply of recordings such as these.  As a musical people, Latter-day Saints, or Mormons,
+          find great joy in listening to hymns and other sacred music.  To hear this type of music in one's own language
+          is all the better.  Sacred music expresses the desires of heart to be closer to God.  In the same way, this music
+          can share God's love and inspiration with us.
+        </p>
+        <p>
+          We hope you enjoy the wonderful recordings shared through this project.
+        </p>
+      </li>
+    </ul>
+
+    {{#each artists}}
+      <ul class="content-area transitional fast offstage">
+        {{#each songs}}
+          <li>
+            {{#if ../../canPlayAudio}}
+              <a href="#" class="icon play">Play</a>
+              <span class="play title">{{ title }}</span>
+              <a href="#" class="icon add">Add to Playlist</a>
+            {{else}}
+              <span class="title first">{{ title }}</span>
+            {{/if}}
+            <a href="/download{{ file }}" class="icon download">Download</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/each}}
+  </div>
 </div>

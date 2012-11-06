@@ -10,6 +10,7 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
     advance: function () {
       this.cardIndx = this.advanceObj(this.$cards, this.cardIndx);
       this.nameIndx = this.advanceObj(this.$names, this.nameIndx);
+      this.contentIndx = this.advanceObj(this.$content, this.contentIndx);
     },
     advanceObj: function ($el, indx) {
       var winWidth = $(window).width();
@@ -50,8 +51,10 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
 
       this.$cards = this.$('.card');
       this.$names = this.$('.name');
+      this.$content = this.$('.content-area');
       this.cardIndx = 0;
       this.nameIndx = 0;
+      this.contentIndx = 0;
 
       // put 'offstage' on rhs of the screen
       var $offstages = this.$cards.filter('.offstage');
