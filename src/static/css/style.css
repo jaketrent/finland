@@ -265,8 +265,8 @@ h6 {
   line-height: 30px;
   padding: 3px 5px;
   overflow: hidden;
-  border-bottom: 1px solid #1192e2;
-  border-top: 1px solid #45bdf9;
+  border-bottom: 1px solid #0c6fac;
+  border-top: 1px solid #33a6f2;
   text-shadow: -1px -1px 1px rgba(0,0,0,0.6);
 }
 .artist-detail .content-area li:first-child {
