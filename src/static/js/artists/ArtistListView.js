@@ -7,9 +7,11 @@ define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistL
       "click .card": "advance",
       "click .name": "advance",
       "click .play": "playSong",
-      "click .add": "addSong"
+      "click .add": "addSong",
+      "click .explore": "exploreSongs"
     },
     advance: function () {
+      this.$('.explore').hide();
       this.cardIndx = this.advanceObj(this.$cards, this.cardIndx);
       this.nameIndx = this.advanceObj(this.$names, this.nameIndx);
       this.contentIndx = this.advanceObj(this.$content, this.contentIndx);
@@ -102,6 +104,12 @@ define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistL
       var $targetRow = $(evt.currentTarget).closest('.song');
       var indx = $targetRow.parent().children('.song').index($targetRow);
       Backbone.Events.trigger('addSong', this.getCurrentArtist(), indx);
+      evt.preventDefault();
+    },
+    exploreSongs: function (evt) {
+      this.advance();
+      this.$('.artist-songs').eq(0).find('.add').click();
+      $('.play-btn').click();
       evt.preventDefault();
     }
 

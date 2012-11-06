@@ -283,6 +283,12 @@ h6 {
 .artist-detail .content-area li.snippet p {
   line-height: 1em;
 }
+.artist-detail .content-area li.snippet .explore {
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px dotted #fff;
+}
 .artist-detail .content-area .icon {
   display: inline-block;
   height: 30px;
