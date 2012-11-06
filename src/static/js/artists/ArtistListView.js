@@ -1,4 +1,4 @@
-define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
+define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistListTmpl, Artists, audioDetector) {
   return Backbone.View.extend({
     initialize: function () {
       this.artists = this.options.artists;
@@ -46,7 +46,8 @@ define(['tmpl!./artistList', './Artists'], function (artistListTmpl, Artists) {
     render: function () {
       var self = this;
       this.$el.html(artistListTmpl({
-        artists: this.artists.toJSON()
+        artists: this.artists.toJSON(),
+        canPlayAudio: audioDetector.canPlayAudio()
       }));
 
       this.$cards = this.$('.card');
