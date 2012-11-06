@@ -8,7 +8,6 @@ define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistL
       "click .name": "advance",
       "click .play": "playSong",
       "click .add": "addSong"
-//      "click .info": "toggleBio"
     },
     advance: function () {
       this.cardIndx = this.advanceObj(this.$cards, this.cardIndx);
@@ -92,9 +91,6 @@ define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistL
     },
     getCurrentArtist: function () {
       return this.artists.at(this.cardIndx - 1); // minus one for welcome card
-    },
-    toggleBio: function () {
-      this.$('.bio').toggleClass('expanded');
     },
     playSong: function (evt) {
       var $targetRow = $(evt.currentTarget).closest('.song');

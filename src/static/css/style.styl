@@ -151,36 +151,11 @@ h1, h2, h3, h4, h5, h6
     margin 20px 2%
     opacity 1
 
-    &.info
-      cursor pointer
-
-    &.info:after
-      content ''
-      height 23px
-      width 23px
-      display block
-      position absolute
-      bottom 7px
-      right 4px
-      image("../img/info-btn.png", 23px, 23px)
-
     &.intro .img
       height 93px
       width 276px
       image("../img/finland-small-banner.png", 276px, 93px)
-
-  .bio
-    height 0
-    line-height 0
-    font-size 0
-    color offBlack
-    transition all 50ms linear
-
-    &.expanded
-      height auto
-      line-height 14px
-      font-size 14px
-      transition all 200ms linear
+      max-width 100%
 
   .horz-bar
     background blue
@@ -235,7 +210,9 @@ h1, h2, h3, h4, h5, h6
         border-bottom none
 
       &.snippet
-        padding 0 4% 0 4%
+        padding 10px 8% 10px 8%
+        font-size 14px
+        color #efefef
         p
           line-height 1em
 

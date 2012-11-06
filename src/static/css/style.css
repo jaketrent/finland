@@ -209,31 +209,11 @@ h6 {
   display: block;
   margin: 0 auto;
 }
-.artist-detail .card.info {
-  cursor: pointer;
-}
-.artist-detail .card.info:after {
-  content: '';
-  height: 23px;
-  width: 23px;
-  display: block;
-  position: absolute;
-  bottom: 7px;
-  right: 4px;
-  background-image: url("../img/info-btn.png");
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .artist-detail .card.info:after {
-    background-image: url("../img/info-btn@2x.png");
-    -webkit-background-size: 23px 23px;
-    -moz-background-size: 23px 23px;
-    background-size: 23px 23px;
-  }
-}
 .artist-detail .card.intro .img {
   height: 93px;
   width: 276px;
   background-image: url("../img/finland-small-banner.png");
+  max-width: 100%;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .artist-detail .card.intro .img {
@@ -242,27 +222,6 @@ h6 {
     -moz-background-size: 276px 93px;
     background-size: 276px 93px;
   }
-}
-.artist-detail .bio {
-  height: 0;
-  line-height: 0;
-  font-size: 0;
-  color: #262727;
-  -webkit-transition: all 50ms linear;
-  -moz-transition: all 50ms linear;
-  -o-transition: all 50ms linear;
-  -ms-transition: all 50ms linear;
-  transition: all 50ms linear;
-}
-.artist-detail .bio.expanded {
-  height: auto;
-  line-height: 14px;
-  font-size: 14px;
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  -ms-transition: all 200ms linear;
-  transition: all 200ms linear;
 }
 .artist-detail .horz-bar {
   background: #0a88d9;
@@ -317,7 +276,9 @@ h6 {
   border-bottom: none;
 }
 .artist-detail .content-area li.snippet {
-  padding: 0 4% 0 4%;
+  padding: 10px 8% 10px 8%;
+  font-size: 14px;
+  color: #efefef;
 }
 .artist-detail .content-area li.snippet p {
   line-height: 1em;

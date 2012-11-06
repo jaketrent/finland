@@ -15,9 +15,6 @@
     {{#each artists}}
       <div class="card artist info transitional fast offstage">
         <img src="{{ photo }}" class="img" />
-        <div class="bio">
-          <p>{{{ bio }}}</p>
-        </div>
       </div>
     {{/each}}
 
@@ -63,6 +60,9 @@
             <a href="/download{{ file }}" class="icon download">Download</a>
           </li>
         {{/each}}
+        <li class="snippet">
+          <p>{{ bio }}</p>
+        </li>
       </ul>
     {{/each}}
   </div>
