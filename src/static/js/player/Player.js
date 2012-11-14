@@ -67,8 +67,15 @@ define(
       this.$('.song-status').html(msgs[type]);
     },
     updateCurrentDuration: function () {
-      console.log('updating current duration...');
-      var time = this.secsToDisplayTime(this.aud.seekable.end(0));
+      var self = this;
+      var time;
+      if (!this.aud.seekable) {
+        setTimeout(function () {
+          time = self.secsToDisplayTime(self.aud.seekable.end(0));
+        }, 400);
+      } else {
+        time = this.secsToDisplayTime(this.aud.seekable.end(0));
+      }
       var songDesc = this.getCurrentSongDesc();
       songDesc.songLength = time;
       this.$('.duration').html(songDesc.songLength);
