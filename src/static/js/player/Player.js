@@ -28,7 +28,6 @@ define(
         this.aud.addEventListener('waiting', this.updateSongStatus);
         this.aud.addEventListener('canplaythrough', this.updateSongStatus);
 
-        this.aud.addEventListener('durationchange', this.updateCurrentDuration);
         this.aud.addEventListener('loadedmetadata', this.updateCurrentDuration);
         this.aud.addEventListener('timeupdate', this.updateCurrentTimePoint);
         this.aud.addEventListener('ended', this.playQueueNext);
@@ -68,6 +67,7 @@ define(
       this.$('.song-status').html(msgs[type]);
     },
     updateCurrentDuration: function () {
+      console.log('updating current duration...');
       var time = this.secsToDisplayTime(this.aud.seekable.end(0));
       var songDesc = this.getCurrentSongDesc();
       songDesc.songLength = time;
