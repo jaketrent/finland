@@ -28,6 +28,7 @@ define(
         this.aud.addEventListener('waiting', this.updateSongStatus);
         this.aud.addEventListener('canplaythrough', this.updateSongStatus);
 
+        this.aud.addEventListener('durationchange', this.updateCurrentDuration);
         this.aud.addEventListener('loadedmetadata', this.updateCurrentDuration);
         this.aud.addEventListener('timeupdate', this.updateCurrentTimePoint);
         this.aud.addEventListener('ended', this.playQueueNext);
