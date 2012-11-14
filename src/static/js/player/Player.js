@@ -69,12 +69,12 @@ define(
     updateCurrentDuration: function () {
       var self = this;
       var time;
-      if (!this.aud.seekable) {
+      try {
+        time = this.secsToDisplayTime(this.aud.seekable.end(0));
+      } catch (e) {
         setTimeout(function () {
           time = self.secsToDisplayTime(self.aud.seekable.end(0));
         }, 400);
-      } else {
-        time = this.secsToDisplayTime(this.aud.seekable.end(0));
       }
       var songDesc = this.getCurrentSongDesc();
       songDesc.songLength = time;
