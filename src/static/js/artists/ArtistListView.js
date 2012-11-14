@@ -80,7 +80,7 @@ define(['tmpl!./artistList', './Artists', '../audioDetector'], function (artistL
       if (doneXpx) {
         setTimeout(function () {
           self.setTransformStyle($el, doneXpx);
-        }, 301); // after transition
+        }, 401); // after transition
       }
     },
     setTransformStyle: function ($el, px) {
