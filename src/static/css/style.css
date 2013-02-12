@@ -258,7 +258,7 @@ h6 {
   right: 0;
   list-style: none;
   margin: 20px 2% 130px 2%;
-  padding: 0;
+  padding: 0 0 150px 0;
   background: #0a88d9;
   -webkit-border-radius: 8px;
   border-radius: 8px;
@@ -285,7 +285,7 @@ h6 {
 .artist-detail .content-area li.snippet p {
   line-height: 1em;
 }
-.artist-detail .content-area li.snippet .explore {
+.artist-detail .content-area li.snippet a {
   color: #fff;
   text-decoration: none;
   padding-bottom: 2px;
